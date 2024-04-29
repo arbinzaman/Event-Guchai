@@ -1,20 +1,20 @@
 const ContactUs = () => {
   return (
     <>
-      <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800">
+      <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32  text-black-800">
         <div className="flex flex-col justify-between">
           <div className="space-y-2">
             <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
               Let's talk!
             </h2>
-            <div className="dark:text-gray-600">
-              Vivamus in nisl metus? Phasellus.
+            <div className="text-black-600">
+              Share your thoughts and we will get back to you as soon as
             </div>
           </div>
           <img
-            src="assets/svg/doodle.svg"
+            src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714348800&semt=ais"
             alt=""
-            className="p-6 h-52 md:h-64"
+            className="p-6"
           />
         </div>
         <form noValidate="" className="space-y-6">
@@ -26,7 +26,7 @@ const ContactUs = () => {
               id="name"
               type="text"
               placeholder=""
-              className="w-full p-3 rounded dark:bg-gray-100"
+              className="w-full p-3 rounded border-2 border-black-800"
             />
           </div>
           <div>
@@ -36,7 +36,7 @@ const ContactUs = () => {
             <input
               id="email"
               type="email"
-              className="w-full p-3 rounded dark:bg-gray-100"
+              className="w-full p-3 rounded border-2 border-black-800"
             />
           </div>
           <div>
@@ -46,12 +46,12 @@ const ContactUs = () => {
             <textarea
               id="message"
               rows="3"
-              className="w-full p-3 rounded dark:bg-gray-100"
+              className="w-full p-3 rounded border-2 border-black-800"
             ></textarea>
           </div>
           <button
             type="submit"
-            className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded dark:bg-violet-600 dark:text-gray-50"
+            className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-accent text-black-50"
           >
             Send Message
           </button>

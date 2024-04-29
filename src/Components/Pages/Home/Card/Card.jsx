@@ -1,6 +1,6 @@
 const Card = () => {
   return (
-    <section className="py-20  text-black-100">
+    <section className="py-20  text-black-100 text-left">
     <div className="container px-4 mx-auto">
       <div className="max-w-2xl mx-auto mb-16 text-center">
         <span className="font-bold tracking-wider uppercase text-accent">Pricing</span>
@@ -10,8 +10,8 @@ const Card = () => {
         <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
           <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-black-900">
             <div className="space-y-2">
-              <h4 className="text-2xl font-bold">Beginner</h4>
-              <span className="text-6xl font-bold">Free</span>
+              <h4 className="text-2xl font-bold">Starter</h4>
+              <span className="text-6xl font-bold">$99/month</span>
             </div>
             <p className="mt-3 leading-relaxed text-black-400">Etiam ac convallis enim, eget euismod dolor.</p>
             <ul className="flex-1 mb-6 text-black-400">
@@ -19,19 +19,31 @@ const Card = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 text-accent">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                 </svg>
-                <span>Aenean quis</span>
+                <span>Event creation and planning tools</span>
               </li>
               <li className="flex mb-2 space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 text-accent">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                 </svg>
-                <span>Morbi semper</span>
+                <span>Online registration and ticketing</span>
               </li>
               <li className="flex mb-2 space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 text-accent">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                 </svg>
-                <span>Tristique enim nec</span>
+                <span>Basic attendee management</span>
+              </li>
+              <li className="flex mb-2 space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 text-accent">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                </svg>
+                <span>Email notifications and reminders</span>
+              </li>
+              <li className="flex mb-2 space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 text-accent">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                </svg>
+                <span>Standard support</span>
               </li>
             </ul>
             <button type="button" className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded bg-accent text-black-900">Get Started</button>
@@ -40,8 +52,8 @@ const Card = () => {
         <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
           <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-accent text-black-900">
             <div className="space-y-2">
-              <h4 className="text-2xl font-bold">Pro</h4>
-              <span className="text-6xl font-bold">$24
+              <h4 className="text-2xl font-bold">Popular</h4>
+              <span className="text-6xl font-bold">$199
                 <span className="text-sm tracking-wide">/month</span>
               </span>
             </div>
@@ -51,25 +63,31 @@ const Card = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                 </svg>
-                <span>Everything in Free</span>
+                <span>All features of the Basic Package, plus:</span>
               </li>
               <li className="flex items-center space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                 </svg>
-                <span>Phasellus tellus</span>
+                <span>Advanced attendee management with customization options</span>
               </li>
               <li className="flex items-center space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                 </svg>
-                <span>Praesent faucibus</span>
+                <span>Customizable event branding and themes</span>
               </li>
               <li className="flex items-center space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                 </svg>
-                <span>Aenean et lectus blandit</span>
+                <span>Analytics and reporting dashboard</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                </svg>
+                <span>Priority support</span>
               </li>
             </ul>
             <a rel="noopener noreferrer" href="#" className="inline-block w-full px-5 py-3 font-bold tracking-wider text-center rounded bg-black-800 text-accent">Get Started</a>

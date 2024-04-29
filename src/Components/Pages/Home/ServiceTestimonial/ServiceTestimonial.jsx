@@ -1,7 +1,7 @@
 const ServiceTestimonial = () => {
   return (
     <>
-      <section className="p-6   text-black-100 text-black-100 mt-10 mb-10">
+      <section className="p-6 font-serif  text-black-100 text-black-100 mt-10 mb-10">
         <div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3">
           <div className="flex flex-col justify-start m-2 lg:m-6">
             <p className="text-4xl font-bold leading-none lg:text-6xl">50+</p>

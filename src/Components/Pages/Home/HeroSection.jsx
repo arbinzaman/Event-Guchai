@@ -1,13 +1,23 @@
 const HeroSection = () => {
   return (
-    <section className="">
+    <section className=" font-serif">
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
           <h1 className="text-5xl font-bold leadi sm:text-6xl">
-            Design Your Dreamy Event With Us
+            Unlock Seamless Events with us
           </h1>
+          <p className="mt-6 mb-8 text-xl sm:mb-12 text-green-800 font-serif">
+            Plan, Execute, and Wow with Ease <br />
+          </p>
           <p className="mt-6 mb-8 text-lg sm:mb-12">
-            Make your event memorable with us
+            {" "}
+            Transform the way you organize events with our intuitive event
+            management system. From effortless planning to flawless execution,
+            we've got you covered every step of the way. Streamline
+            registration, engage attendees, and elevate experiences with
+            powerful tools and unparalleled support. Say goodbye to event
+            headaches and hello to success. Let's make your next event
+            unforgettable. Start now."
           </p>
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             <a
