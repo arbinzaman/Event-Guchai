@@ -13,14 +13,14 @@ const HeroSection = () => {
             <a
               rel="noopener noreferrer"
               href="#"
-              className="px-8 py-3 text-lg font-semibold rounded bg-violet-400 text-gray-900"
+              className="px-8 py-3 text-lg font-semibold rounded bg-accent text-black-900"
             >
               Get Started
             </a>
             <a
               rel="noopener noreferrer"
               href="#"
-              className="px-8 py-3 text-lg font-semibold border rounded border-gray-100"
+              className="px-8 py-3 text-lg font-semibold border rounded border-black-100"
             >
               Contact
             </a>
