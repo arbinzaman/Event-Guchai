@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-import UseTitle from "../../../Hooks/UseTitle";
-import { toast } from "react-toastify";
+import { AuthContext } from "../../../Api/Context/AuthProvider";
+
 
 const Register = () => {
-  UseTitle("Register");
+  // UseTitle("Register");
   const { createUser } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
@@ -31,7 +30,7 @@ const Register = () => {
       .then((data) => {
         console.log(data);
         if (data.insertId) {
-          toast.success("User Added Successfully");
+          // toast.success("User Added Successfully");
           form.reset();
           console.log(data);
 
@@ -43,18 +42,18 @@ const Register = () => {
             })
             .catch((error) => {
               console.error(error);
-              toast.error(error.message);
+              // toast.error(error.message);
             });
         } 
         else {
-          toast.error("User Added Failed");
+          // toast.error("User Added Failed");
         }
       })
       .catch((err) => console.log(err));
   };
   return (
     <div className="mt-10 mb-10">
-      <div className=" mx-auto w-full max-w-md p-8 space-y-3 rounded-xl bg-base-300 text-black">
+      <div className=" mx-auto w-full max-w-md p-8 space-y-3 rounded-xl bg-cyan-300 text-black">
         <h1 className="text-2xl font-bold text-center text-black ">Sign Up</h1>
         <form
           onSubmit={handleSubmit}
@@ -130,7 +129,7 @@ const Register = () => {
           </div>
           <button
             type="submit"
-            className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400"
+            className="block w-full p-3 text-center rounded-sm text-white bg-base-content"
           >
             Sign Up
           </button>

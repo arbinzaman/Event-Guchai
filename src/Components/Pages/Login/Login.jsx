@@ -98,7 +98,7 @@ const Login = () => {
               </a>
             </div>
           </div>
-          <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">
+          <button className="block w-full p-3 text-center rounded-sm text-white bg-base-content">
             Sign in
           </button>
         </form>
