@@ -23,7 +23,7 @@ const HeroSection = () => {
             <a
               rel="noopener noreferrer"
               href="#"
-              className="px-8 py-3 text-lg font-semibold rounded bg-accent text-black-900"
+              className="px-8 py-3 text-lg font-semibold rounded bg-cyan-300 text-black-900"
             >
               Get Started
             </a>

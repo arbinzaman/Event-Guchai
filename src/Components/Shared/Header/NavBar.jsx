@@ -55,11 +55,12 @@ const NavBar = () => {
                 <a>Contact Us</a>
               </li>
             </Link>
-
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn mr-2">Login</a>
+          <Link to="/login">
+            <a className="btn mr-2">Login</a>
+          </Link>
           <a className="btn">Sign up</a>
         </div>
       </div>

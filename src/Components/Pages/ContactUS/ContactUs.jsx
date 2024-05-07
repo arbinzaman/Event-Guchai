@@ -51,7 +51,7 @@ const ContactUs = () => {
           </div>
           <button
             type="submit"
-            className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-accent text-black-50"
+            className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-cyan-300 text-black-50"
           >
             Send Message
           </button>

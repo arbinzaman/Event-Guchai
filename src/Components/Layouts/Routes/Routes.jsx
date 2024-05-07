@@ -3,7 +3,7 @@ import Main from "../Main/Main";
 import Home from "../../Pages/Home/Home";
 import ContactUs from "../../Pages/ContactUS/ContactUs";
 import EventMainPage from "../../Pages/Event/EventMainPage";
-import SignIn from "../../Pages/Login/SignIn";
+import Login from "../../Pages/Login/Login";
 
 
 const router = createBrowserRouter([
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
    
       },
       {
-        path: "/signin",
-        element: <SignIn></SignIn>,
+        path: "/login",
+        element: <Login></Login>,
    
       },
     ],
