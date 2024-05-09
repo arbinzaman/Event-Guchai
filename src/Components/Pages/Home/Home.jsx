@@ -1,4 +1,4 @@
-import Card from "./Card/Card";
+import Card from "./PricingCard/Card";
 import HeroSection from "./HeroSection";
 import ReviewSection from "./ReviewSection/ReviewSection";
 import ServiceTestimonial from "./ServiceTestimonial/ServiceTestimonial";

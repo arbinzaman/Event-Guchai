@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
+import toast  from 'react-hot-toast';
 
 
 const Register = () => {
@@ -30,7 +31,7 @@ const Register = () => {
       .then((data) => {
         console.log(data);
         if (data.insertId) {
-          // toast.success("User Added Successfully");
+          toast.success("user added success");
           form.reset();
           console.log(data);
 
@@ -42,11 +43,11 @@ const Register = () => {
             })
             .catch((error) => {
               console.error(error);
-              // toast.error(error.message);
+              toast.error(error.message);
             });
         } 
         else {
-          // toast.error("User Added Failed");
+          toast.error("user added failed");
         }
       })
       .catch((err) => console.log(err));

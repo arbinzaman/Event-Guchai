@@ -5,6 +5,8 @@ import ContactUs from "../../Pages/ContactUS/ContactUs";
 import EventMainPage from "../../Pages/Event/EventMainPage";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import DashboardLayouts from "../DashboardLayouts/DashboardLayouts";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -40,16 +42,16 @@ const router = createBrowserRouter([
     ],
   },
 
-  // {
-  //   path: "/dashboard",
-  //   element: (
-  //     <PrivateRoutes>
-  //       <DashBoradLayouts></DashBoradLayouts>
-  //     </PrivateRoutes>
-  //   ),
-  //   children: [
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoutes>
+        <DashboardLayouts></DashboardLayouts>
+      </PrivateRoutes>
+    ),
+    children: [
  
-  //   ],
-  // },
+    ],
+  },
 ]);
 export default router;

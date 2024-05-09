@@ -2,6 +2,10 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
+import toast from 'react-hot-toast';
+
+
+
 
 const Login = () => {
   // user name And password Login
@@ -13,6 +17,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   // console.log(from);
+
 
   const handleUserNamePassword = (event) => {
     event.preventDefault();
@@ -27,7 +32,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        // toast.success("Login Succesfully");
+        toast.success("login success");
         setError("");
         navigate(from, { replace: true });
       })
@@ -37,7 +42,7 @@ const Login = () => {
         setError(error.message);
     
       });
-      // toast.error(error);
+      toast.error(error);
   };
   
   // gitHUb Login

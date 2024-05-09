@@ -10,11 +10,8 @@ const EventMainPage = () => {
               className="h-80  aspect-video"
             />
             <div className="flex flex-col justify-center flex-1 p-6 ">
-              <span className="text-xs uppercase text-black-400  ">
-                Join, it's free
-              </span>
               <h3 className="text-3xl font-bold">
-                We're not reinventing the wheel
+           Starter 
               </h3>
               <p className="my-6 text-black-400  ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor

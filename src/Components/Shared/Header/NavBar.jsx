@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../../Api/Context/AuthProvider";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const location = useLocation();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error("error"));
+  };
   return (
     <div className="font-serif">
       <div className="navbar bg-base-100">
@@ -32,7 +41,7 @@ const NavBar = () => {
                   <a>Events</a>
                 </li>
               </Link>
-              
+
               <Link to="/contactus">
                 <li>
                   <a>Contact Us</a>
@@ -42,7 +51,7 @@ const NavBar = () => {
           </div>
           <Link to="/">
             {" "}
-            <a className="btn btn-ghost text-xl">Event Guchai</a>
+            <a className="btn btn-ghost text-xl">Eventগুছাই</a>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -61,12 +70,41 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login">
-            <a className="btn mr-2">Login</a>
-          </Link>
-          <Link to="/register">
-            <a className="btn">Sign up</a>
-          </Link>
+          {user?.uid ? (
+            <>
+              <span className="">
+                <img
+                  src={user?.photoURL}
+                  title={user?.displayName}
+                  className=" ml-auto h-10 rounded-full"
+                  alt=""
+                />
+              </span>
+              <button
+                onClick={handleLogOut}
+                className="btn btn-ghost normal-case text-xl"
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              {location.pathname === "/login" || (
+                <Link to="/login" className="btn btn-ghost normal-case text-xl">
+                  Login
+                </Link>
+              )}
+
+              {location.pathname === "/register" || (
+                <Link
+                  to="/register"
+                  className="btn btn-ghost normal-case text-xl"
+                >
+                  Register
+                </Link>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>
