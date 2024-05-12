@@ -7,7 +7,7 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import DashboardLayouts from "../DashboardLayouts/DashboardLayouts";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
-
+import AllUsers from "../../Dashboard/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -17,27 +17,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-   
       },
       {
         path: "/contactus",
         element: <ContactUs></ContactUs>,
-   
       },
       {
         path: "/events",
         element: <EventMainPage></EventMainPage>,
-   
       },
       {
         path: "/login",
         element: <Login></Login>,
-   
       },
       {
         path: "/register",
         element: <Register></Register>,
-   
       },
     ],
   },
@@ -50,7 +45,10 @@ const router = createBrowserRouter([
       </PrivateRoutes>
     ),
     children: [
- 
+      {
+        path: "/dashboard",
+        element: <AllUsers></AllUsers>,
+      },
     ],
   },
 ]);
