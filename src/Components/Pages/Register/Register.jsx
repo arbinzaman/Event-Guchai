@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
 import toast  from 'react-hot-toast';
 
@@ -7,7 +7,13 @@ import toast  from 'react-hot-toast';
 const Register = () => {
   // UseTitle("Register");
   const { createUser } = useContext(AuthContext);
+  
+  // Redirect to current path
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -40,6 +46,7 @@ const Register = () => {
               const user = result.user;
               console.log(user);
               form.reset();
+              navigate(from, { replace: true });
             })
             .catch((error) => {
               console.error(error);
