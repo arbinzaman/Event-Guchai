@@ -9,7 +9,7 @@ const AllUsers = () => {
     queryFn: async () => {
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data); 
+      return data;
      
     },
   });
@@ -17,7 +17,7 @@ const AllUsers = () => {
   // handleMakeAdmin
   const handleMakeAdmin = (userID) => {
     fetch(
-      `https://mukto-chitro-server-site.vercel.app/users/${userID}`,
+      `http://localhost:3001/users/${userID}`,
       {
         method: "PUT",
       }
@@ -26,7 +26,7 @@ const AllUsers = () => {
       .then((data) => {
         console.log(data);
         if (data.message === "User role updated to admin") {
-          toast.success("Make Admin Successfully");
+          // toast.success("Make Admin Successfully");
           refetch();
         }
       });
@@ -34,7 +34,7 @@ const AllUsers = () => {
 
   // handleDeleteUser
   const handleDeleteUser = (userID) => {
-    fetch(`https://mukto-chitro-server-site.vercel.app/users/${userID}`, {
+    fetch(`http://localhost:3001/users/${userID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -42,7 +42,7 @@ const AllUsers = () => {
         console.log(data);
         if (data.message === "Row deleted successfully") {
           console.log(data.deletedCount);
-          toast.success("User Deleted Succesfully");
+          // toast.success("User Deleted Succesfully");
           window.location.reload();
           const remainingUsers = displayUser.filter((usr) => usr.userID !== userID);
           setDisplayUser(remainingUsers);

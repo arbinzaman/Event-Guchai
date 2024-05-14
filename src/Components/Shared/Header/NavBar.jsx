@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
-
+ import useAdmin from "../../../Hooks/UseAdmin";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin(user?.email);
   const location = useLocation();
   const handleLogOut = () => {
     logOut()
       .then(() => {})
-      .catch((error) => console.error("error"));
+      .catch(() => console.error("error"));
   };
   return (
     <div className="font-serif">
@@ -47,6 +48,20 @@ const NavBar = () => {
                   <a>Contact Us</a>
                 </li>
               </Link>
+
+
+
+
+              {isAdmin && (
+              <>
+                 <Link to="/dashboard">
+                <li>
+                  <a>Dashboard</a>
+                </li>
+              </Link>
+              </>
+            )}
+             
             </ul>
           </div>
           <Link to="/">

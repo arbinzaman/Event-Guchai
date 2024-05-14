@@ -56,6 +56,8 @@ const Login = () => {
     ProviderLogin(googleProvider)
       .then((result) => {
         const user = result.user;
+
+        
         console.log(user);
         navigate(from, { replace: true });
       })
@@ -130,7 +132,7 @@ const Login = () => {
           </button>
         </div>
         <p className="text-xs text-center sm:px-6 text-black">
-          Don't have an account?
+          Don`&apos;`t have an account?
           <Link
             to="/register"
             rel="noopener noreferrer"

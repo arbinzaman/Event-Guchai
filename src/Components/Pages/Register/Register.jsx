@@ -1,32 +1,30 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
-import toast  from 'react-hot-toast';
-
+import toast from "react-hot-toast";
 
 const Register = () => {
   // UseTitle("Register");
   const { createUser } = useContext(AuthContext);
-  
+
   // Redirect to current path
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const userName = form.username.value;
+    const role = form.role.value;
     const address = form.address.value;
-    const contact = form.contact.value;
+    const phone = form.contact.value;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(userName,address,contact, email, password);
-    const data = { userName, address, contact, email, password };
+    const data = { userName, address,role, phone, email, password };
     console.log(data);
 
-    fetch("https://mukto-chitro-server-site.vercel.app/users", {
+    fetch("http://localhost:3001/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,22 +36,20 @@ const Register = () => {
         console.log(data);
         if (data.insertId) {
           toast.success("user added success");
-          form.reset();
           console.log(data);
-
+          
           createUser(email, password)
-            .then((result) => {
-              const user = result.user;
-              console.log(user);
-              form.reset();
-              navigate(from, { replace: true });
-            })
-            .catch((error) => {
-              console.error(error);
-              toast.error(error.message);
+          .then((result) => {
+            const user = result.user;
+            console.log(user);
+            form.reset();
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            console.error(error);
+            toast.error(error.message);
             });
-        } 
-        else {
+        } else {
           toast.error("user added failed");
         }
       })
@@ -78,7 +74,7 @@ const Register = () => {
               name="name"
               id="username"
               placeholder="userName"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -90,7 +86,7 @@ const Register = () => {
               name="address"
               id="address"
               placeholder="address"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -102,8 +98,24 @@ const Register = () => {
               name="contact"
               id="contact"
               placeholder="contact"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
             />
+          </div>
+          <div className="space-y-1 text-sm ">
+          <label htmlFor="username" className="block text-black">
+              Select Role
+            </label>
+            <select
+              className="select  w-full "
+              type="text"
+              name="role"
+              id="role"
+              placeholder="contact"
+              
+            >
+              <option>user</option>
+              <option>vendor</option>
+            </select>
           </div>
           <div className="space-y-1 text-sm">
             <label htmlFor="email" className="block text-black">
@@ -114,7 +126,7 @@ const Register = () => {
               name="email"
               id="email"
               placeholder="Email"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
             />
           </div>
 
@@ -127,7 +139,7 @@ const Register = () => {
               name="password"
               id="password"
               placeholder="Password"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
             />
             <div className="flex justify-end text-xs text-black">
               <a rel="noopener noreferrer" href="#">
