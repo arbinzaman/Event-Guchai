@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 const AllUsers = () => {
   const [displayUser, setDisplayUser] = useState();
+  console.log(displayUser);
   const url = `http://localhost:3001/users`;
 
   const { data: users = [], refetch } = useQuery({
@@ -10,18 +11,28 @@ const AllUsers = () => {
       const res = await fetch(url);
       const data = await res.json();
       return data;
-     
     },
   });
 
   // handleMakeAdmin
   const handleMakeAdmin = (userID) => {
-    fetch(
-      `http://localhost:3001/users/${userID}`,
-      {
-        method: "PUT",
-      }
-    )
+    fetch(`http://localhost:3001/users/admin/${userID}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.message === "User role updated to admin") {
+          // toast.success("Make Admin Successfully");
+          refetch();
+        }
+      });
+  };
+
+  const handleMakeVendor = (userID) => {
+    fetch(`http://localhost:3001/users/${userID}`, {
+      method: "PUT",
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -40,11 +51,13 @@ const AllUsers = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.message === "Row deleted successfully") {
+        if (data.message === "User deleted successful") {
           console.log(data.deletedCount);
           // toast.success("User Deleted Succesfully");
           window.location.reload();
-          const remainingUsers = displayUser.filter((usr) => usr.userID !== userID);
+          const remainingUsers = displayUser.filter(
+            (usr) => usr.userID !== userID
+          );
           setDisplayUser(remainingUsers);
         }
       });
@@ -61,6 +74,7 @@ const AllUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Admin</th>
+              <th>Vendor</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -77,6 +91,16 @@ const AllUsers = () => {
                       className="btn btn-xs btn-primary"
                     >
                       Make Admin
+                    </button>
+                  )}
+                </td>
+                <td>
+                  {user?.role !== "vendor" && (
+                    <button
+                      onClick={() => handleMakeVendor(user.userID)}
+                      className="btn btn-xs text-white bg-cyan-500"
+                    >
+                      Make Vendor
                     </button>
                   )}
                 </td>

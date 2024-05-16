@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
 import toast from "react-hot-toast";
@@ -6,6 +6,33 @@ import toast from "react-hot-toast";
 const Register = () => {
   // UseTitle("Register");
   const { createUser } = useContext(AuthContext);
+  const [firstSelectValue, setFirstSelectValue] = useState("");
+  console.log(firstSelectValue);
+
+  function addOption(select, text, value) {
+    const option = document.createElement("option");
+    option.text = text;
+    option.value = value;
+    select.add(option);
+  }
+  const handleVendorSelection = () => {
+    const value = document.getElementById("role").value;
+    console.log(value);
+    const secondSelect = document.getElementById("VendorRole");
+    secondSelect.innerHTML = "";
+    if (firstSelectValue !== "vendor") {
+      secondSelect.style.display = "block";
+      addOption(secondSelect, "Select Vendor Type", "");
+      addOption(secondSelect, "musician", "musician");
+      addOption(secondSelect, "sound_system", "sound_system");
+      addOption(secondSelect, "decorator", "decorator");
+      addOption(secondSelect, "media", "media");
+      addOption(secondSelect, "catering", "catering");
+      setFirstSelectValue("vendor");
+    } else {
+      secondSelect.style.display = "none";
+    }
+  };
 
   // Redirect to current path
   const navigate = useNavigate();
@@ -16,12 +43,22 @@ const Register = () => {
     event.preventDefault();
     const form = event.target;
     const userName = form.username.value;
-    const role = form.role.value;
+    const role = firstSelectValue;
+    const vendorRole = form.VendorRole.value;
     const address = form.address.value;
     const phone = form.contact.value;
     const email = form.email.value;
     const password = form.password.value;
-    const data = { userName, address,role, phone, email, password };
+
+    const data = {
+      userName,
+      address,
+      role,
+      vendorRole,
+      phone,
+      email,
+      password,
+    };
     console.log(data);
 
     fetch("http://localhost:3001/users", {
@@ -37,17 +74,17 @@ const Register = () => {
         if (data.insertId) {
           toast.success("user added success");
           console.log(data);
-          
+
           createUser(email, password)
-          .then((result) => {
-            const user = result.user;
-            console.log(user);
-            form.reset();
-            navigate(from, { replace: true });
-          })
-          .catch((error) => {
-            console.error(error);
-            toast.error(error.message);
+            .then((result) => {
+              const user = result.user;
+              console.log(user);
+              form.reset();
+              navigate(from, { replace: true });
+            })
+            .catch((error) => {
+              console.error(error);
+              toast.error(error.message);
             });
         } else {
           toast.error("user added failed");
@@ -102,7 +139,7 @@ const Register = () => {
             />
           </div>
           <div className="space-y-1 text-sm ">
-          <label htmlFor="username" className="block text-black">
+            <label htmlFor="role" className="block text-black" id="role">
               Select Role
             </label>
             <select
@@ -111,11 +148,29 @@ const Register = () => {
               name="role"
               id="role"
               placeholder="contact"
-              
+              onChange={() => handleVendorSelection()}
             >
-              <option>user</option>
-              <option>vendor</option>
+              <option value={"user"}>user</option>
+              <option value={"vendor"}>vendor</option>
             </select>
+          </div>
+          <div className="space-y-1 text-sm ">
+            <label
+              htmlFor="username"
+              className="block text-black "
+              id=""
+              style={{ display: "none" }}
+            >
+              Select Vendor Role
+            </label>
+            <select
+              className="select w-full  "
+              type="text"
+              name="role"
+              id="VendorRole"
+              placeholder="contact"
+              style={{ display: "none" }}
+            ></select>
           </div>
           <div className="space-y-1 text-sm">
             <label htmlFor="email" className="block text-black">

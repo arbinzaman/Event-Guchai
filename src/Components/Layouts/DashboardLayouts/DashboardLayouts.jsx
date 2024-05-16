@@ -34,7 +34,10 @@ const DashBoardLayouts = () => {
             </li>
 
             <li>
-              <Link to="/dashboard">All Users</Link>
+              <Link to="/dashboard">Users</Link>
+            </li>
+            <li>
+              <Link to="/dashboard/booking">Bookings</Link>
             </li>
           </ul>
         </div>

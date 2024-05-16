@@ -5,6 +5,7 @@ import { AuthContext } from "../../../Api/Context/AuthProvider";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
+  console.log(isAdmin);
   const location = useLocation();
   const handleLogOut = () => {
     logOut()
@@ -49,9 +50,6 @@ const NavBar = () => {
                 </li>
               </Link>
 
-
-
-
               {isAdmin && (
               <>
                  <Link to="/dashboard">
@@ -82,6 +80,15 @@ const NavBar = () => {
                 <a>Contact Us</a>
               </li>
             </Link>
+            {isAdmin && (
+              <>
+                 <Link to="/dashboard">
+                <li>
+                  <a>Dashboard</a>
+                </li>
+              </Link>
+              </>
+            )}
           </ul>
         </div>
         <div className="navbar-end">
