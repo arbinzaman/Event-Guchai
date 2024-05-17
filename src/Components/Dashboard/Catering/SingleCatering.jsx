@@ -6,9 +6,9 @@ import toast from "react-hot-toast";
 const SingleSoundSystem = ({ booking }) => {
   const { user } = useContext(AuthContext);
   const customerEmail = user?.email;
-  const { sound_system,bookingID } = booking;
+  const { food, bookingID } = booking;
   // console.log(booking);
-  const quantity = sound_system;
+  const description = food;
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const status = "not done";
@@ -16,12 +16,12 @@ const SingleSoundSystem = ({ booking }) => {
   const handleBookSoundSystem = () => {
     const bookSoundSystem = {
       customerEmail,
-      quantity,
+      description,
       status,
     };
     console.log(bookSoundSystem);
 
-    fetch("http://localhost:3001/sound-system", {
+    fetch("http://localhost:3001/catering", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,36 +47,34 @@ const SingleSoundSystem = ({ booking }) => {
       })
       .catch((err) => console.log(err));
 
-
-      fetch(`http://localhost:3001/bookings/sound-system/${bookingID}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.message === "Sound_system data deleted successful") {
-            toast.error("Sound_system data deleted successful");
-            window.location.reload();
-          } else {
-            toast.error("Sound_system data delete failed");
-          }
-        }) 
-
+    fetch(`http://localhost:3001/bookings/catering/${bookingID}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.message === "Sound_system data deleted successful") {
+          toast.error("Sound_system data deleted successful");
+          window.location.reload();
+        } else {
+          toast.error("Sound_system data delete failed");
+          window.location.reload();
+        }
+      });
   };
-
 
   return (
     <div>
       <div className="card mt-5 w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title">{sound_system}</h2>
+          <h2 className="card-title">{food}</h2>
           <div className="card-actions justify-end">
             <button
               className="btn btn-xs text-xl "
               onClick={() => handleBookSoundSystem(bookingID)}
               disabled={isButtonDisabled}
             >
-             <MdOutlinePendingActions />
+              <MdOutlinePendingActions />
             </button>
           </div>
         </div>

@@ -15,6 +15,10 @@ import PendingWorkSound from "../../Dashboard/SoundSystem/PendingWorkSound";
 import CustomerBooking from "../../Dashboard/CustomerBookings/CustomerBooking";
 import Decorator from "../../Dashboard/Decorator/Decorator";
 import PendingWorkDecorator from "../../Dashboard/Decorator/PendingWorkDecorator";
+import Catering from "../../Dashboard/Catering/Catering";
+import PendingWorkCatering from "../../Dashboard/Catering/PendingWorkCatering";
+import Media from "../../Dashboard/Media/Media";
+import PendingWorkMedia from "../../Dashboard/Media/PendingWorkMedia";
 
 const router = createBrowserRouter([
   {
@@ -90,6 +94,30 @@ const router = createBrowserRouter([
         path: "/dashboard/pending-works-decorator",
         element: (
            <PendingWorkDecorator/>
+        ),
+      },
+      {
+        path: "/dashboard/catering",
+        element: (
+           <Catering/>
+        ),
+      },
+      {
+        path: "/dashboard/pending-works-media",
+        element: (
+           <PendingWorkMedia/>
+        ),
+      },
+      {
+        path: "/dashboard/media",
+        element: (
+           <Media/>
+        ),
+      },
+      {
+        path: "/dashboard/pending-works-catering",
+        element: (
+           <PendingWorkCatering/>
         ),
       },
       {

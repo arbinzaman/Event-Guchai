@@ -47,7 +47,7 @@ const SingleDecoration = ({ booking }) => {
       })
       .catch((err) => console.log(err));
 
-    fetch(`http://localhost:3001/decorator/${bookingID}`, {
+    fetch(`http://localhost:3001/bookings/decorator/${bookingID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

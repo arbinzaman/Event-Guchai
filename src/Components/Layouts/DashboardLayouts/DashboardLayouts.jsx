@@ -70,6 +70,26 @@ const DashBoardLayouts = () => {
                 </li>
               </>
             )}
+            {vendorRole?.vendorRoles == "catering" && (
+              <>
+                <li>
+                  <Link to="/dashboard/catering">Catering</Link>
+                  <Link to="/dashboard/pending-works-catering">
+                    Pending Works
+                  </Link>
+                </li>
+              </>
+            )}
+            {vendorRole?.vendorRoles == "media" && (
+              <>
+                <li>
+                  <Link to="/dashboard/media">Media</Link>
+                  <Link to="/dashboard/pending-works-media">
+                    Pending Works
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
