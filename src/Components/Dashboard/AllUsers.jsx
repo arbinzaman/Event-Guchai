@@ -1,5 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { RiAdminFill } from "react-icons/ri";
+import { GrUserWorker } from "react-icons/gr";
+import { MdDelete } from "react-icons/md";
+import toast from "react-hot-toast";
 const AllUsers = () => {
   const [displayUser, setDisplayUser] = useState();
   // console.log(displayUser);
@@ -23,7 +27,7 @@ const AllUsers = () => {
       .then((data) => {
         console.log(data);
         if (data.message === "User role updated to admin") {
-          // toast.success("Make Admin Successfully");
+          toast.success("make admin successful");
           refetch();
         }
       });
@@ -37,7 +41,7 @@ const AllUsers = () => {
       .then((data) => {
         console.log(data);
         if (data.message === "User role updated to admin") {
-          // toast.success("Make Admin Successfully");
+          toast.success("make vendor successful");
           refetch();
         }
       });
@@ -52,8 +56,8 @@ const AllUsers = () => {
       .then((data) => {
         console.log(data);
         if (data.message === "User deleted successful") {
-          console.log(data.deletedCount);
-          // toast.success("User Deleted Succesfully");
+          toast.error("user deleted successful");
+          // console.log(data.deletedCount);
           window.location.reload();
           const remainingUsers = displayUser.filter(
             (usr) => usr.userID !== userID
@@ -88,9 +92,9 @@ const AllUsers = () => {
                   {user?.role !== "admin" && (
                     <button
                       onClick={() => handleMakeAdmin(user.userID)}
-                      className="btn btn-xs btn-primary"
+                      className="btn btn-xs text-lg btn-primary"
                     >
-                      Make Admin
+                      <RiAdminFill />
                     </button>
                   )}
                 </td>
@@ -98,9 +102,9 @@ const AllUsers = () => {
                   {user?.role !== "vendor" && (
                     <button
                       onClick={() => handleMakeVendor(user.userID)}
-                      className="btn btn-xs text-white bg-cyan-500"
+                      className="btn btn-xs text-lg text-white bg-cyan-500"
                     >
-                      Make Vendor
+                      <GrUserWorker />
                     </button>
                   )}
                 </td>
@@ -108,9 +112,9 @@ const AllUsers = () => {
                   {user?.role !== "admin" && (
                     <button
                       onClick={() => handleDeleteUser(user.userID)}
-                      className="btn btn-xs btn-danger"
+                      className="btn btn-xs text-lg btn-danger"
                     >
-                      Delete
+                      <MdDelete />
                     </button>
                   )}
                 </td>

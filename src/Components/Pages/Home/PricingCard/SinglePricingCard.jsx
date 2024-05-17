@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../../Api/Context/AuthProvider";
+import toast from "react-hot-toast";
 
 // eslint-disable-next-line react/prop-types
 const SinglePricingCard = ({ event }) => {
@@ -46,10 +47,10 @@ const SinglePricingCard = ({ event }) => {
       .then((data) => {
         console.log(data);
         if (data.insertId) {
-          // toast.success("user added success");
+          toast.success("booking added success");
           console.log(data);
         } else {
-          // toast.error("user added failed");
+          toast.error("booking added failed");
         }
       })
       .catch((err) => console.log(err));

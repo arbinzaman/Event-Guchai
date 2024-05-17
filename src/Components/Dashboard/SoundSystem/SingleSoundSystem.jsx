@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { MdOutlinePendingActions } from "react-icons/md";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
+import toast from "react-hot-toast";
 
 const SingleSoundSystem = ({ booking }) => {
   const { user } = useContext(AuthContext);
   const customerEmail = user?.email;
-  const { sound_system } = booking;
+  const { sound_system,bookingID } = booking;
+  // console.log(booking);
   const quantity = sound_system;
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -35,16 +37,33 @@ const SingleSoundSystem = ({ booking }) => {
       .then((data) => {
         console.log(data);
         if (data.insertId) {
-          // toast.success("user added success");
+          toast.success("sound system booked successful");
           setIsButtonDisabled(true);
-          // document.getElementById("bookSoundSystem").disabled = true;
+          window.location.reload();
           console.log(data);
         } else {
-          // toast.error("user added failed");
+          toast.error("sound system book failed");
         }
       })
       .catch((err) => console.log(err));
+
+
+      fetch(`http://localhost:3001/bookings/${bookingID}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.message === "Sound_system data deleted successful") {
+            toast.error("Sound_system data deleted successful");
+            window.location.reload();
+          } else {
+            toast.error("Sound_system data delete failed");
+          }
+        }) 
+
   };
+
 
   return (
     <div>
@@ -53,8 +72,8 @@ const SingleSoundSystem = ({ booking }) => {
           <h2 className="card-title">{sound_system}</h2>
           <div className="card-actions justify-end">
             <button
-              className="btn text-3xl "
-              onClick={() => handleBookSoundSystem()}
+              className="btn btn-xs text-xl "
+              onClick={() => handleBookSoundSystem(bookingID)}
               disabled={isButtonDisabled}
             >
              <MdOutlinePendingActions />

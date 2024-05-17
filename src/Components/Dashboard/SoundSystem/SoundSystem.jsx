@@ -19,13 +19,13 @@ const SoundSystem = () => {
       return data;
     },
   });
-
+  const filteredBookings = bookings.filter((book) => book.sound_system !== "");
   return (
     <div>
       {vendorRole.vendorRoles =="sound_system" && (
         <>
           <div className=" ml-10 grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 text-justify">
-            {bookings.map((booking) => (
+            {filteredBookings.map((booking) => (
               <SingleSoundSystem
                 key={booking.bookingsID}
                 booking={booking}

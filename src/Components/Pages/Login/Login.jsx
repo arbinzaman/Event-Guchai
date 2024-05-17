@@ -44,10 +44,6 @@ const Login = () => {
       });
       toast.error(error);
   };
-  
-  // gitHUb Login
-
-  // const githubProvider = new GithubAuthProvider();
 
   // google login
   const { ProviderLogin } = useContext(AuthContext);
