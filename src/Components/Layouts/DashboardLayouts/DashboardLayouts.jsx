@@ -8,9 +8,9 @@ import { useContext } from "react";
 
 const DashBoardLayouts = () => {
   const { user } = useContext(AuthContext);
-  // const [isAdmin] = useAdmin(user?.email);
   const vendorRole = useUserRoles(user?.email);
-  // console.log(vendorRole);
+  const roles = useUserRoles(user?.email);
+  // console.log(roles.roles);
   return (
     <div className="font-serif">
       <NavBar></NavBar>
@@ -33,17 +33,15 @@ const DashBoardLayouts = () => {
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             <li>
-              <Link to="/dashboard/my-booking" className="text-2xl">
+              <Link to="/dashboard" className="text-2xl">
                 Dashboard
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/my-booking">
-                My Bookings
-              </Link>
+              <Link to="/dashboard">My Bookings</Link>
             </li>
 
-            {user?.role == "admin" && (
+            {roles?.roles == "admin" && (
               <>
                 <li>
                   <Link to="/dashboard/all-users">Users</Link>
@@ -54,11 +52,21 @@ const DashBoardLayouts = () => {
               </>
             )}
 
-            {vendorRole.vendorRoles == "sound_system" && (
+            {vendorRole?.vendorRoles == "sound_system" && (
               <>
                 <li>
                   <Link to="/dashboard/sound-system">Sound System</Link>
                   <Link to="/dashboard/pending-works-sound">Pending Works</Link>
+                </li>
+              </>
+            )}
+            {vendorRole?.vendorRoles == "decorator" && (
+              <>
+                <li>
+                  <Link to="/dashboard/decorator">Decoration</Link>
+                  <Link to="/dashboard/pending-works-decorator">
+                    Pending Works
+                  </Link>
                 </li>
               </>
             )}

@@ -13,6 +13,8 @@ import AdminRoute from "./AdminRoute/AdminRoute";
 import SoundSystem from "../../Dashboard/SoundSystem/SoundSystem";
 import PendingWorkSound from "../../Dashboard/SoundSystem/PendingWorkSound";
 import CustomerBooking from "../../Dashboard/CustomerBookings/CustomerBooking";
+import Decorator from "../../Dashboard/Decorator/Decorator";
+import PendingWorkDecorator from "../../Dashboard/Decorator/PendingWorkDecorator";
 
 const router = createBrowserRouter([
   {
@@ -79,7 +81,19 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/my-booking",
+        path: "/dashboard/decorator",
+        element: (
+           <Decorator/>
+        ),
+      },
+      {
+        path: "/dashboard/pending-works-decorator",
+        element: (
+           <PendingWorkDecorator/>
+        ),
+      },
+      {
+        path: "/dashboard",
         element: (
            <CustomerBooking/>
         ),

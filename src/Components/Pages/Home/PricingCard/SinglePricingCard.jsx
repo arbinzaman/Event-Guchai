@@ -50,7 +50,7 @@ const SinglePricingCard = ({ event }) => {
           console.log(data);
           if (data.insertId) {
             toast.success("Event booked successful");
-            window.location.reload();
+            // window.location.reload();
             console.log(data);
           } else {
             toast.error("Event book failed");

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const useUserRoles = (email) => {
   const [roles, setRoles] = useState([]);
   const [vendorRoles, setVendorRole] = useState([]);
-  // console.log(vendorRoles);
+  // console.log(roles);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 

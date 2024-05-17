@@ -21,13 +21,12 @@ const PendingWorkSound = () => {
   });
 
   const handleUpdateStatus = (sound_systemID) => {
-//    console.log(sound_systemID);
     fetch(`http://localhost:3001/sound-system/${sound_systemID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ status: "completed" }), // Adjust according to your API requirements
+      body: JSON.stringify({ status: "completed" }),
     })
       .then((res) => {
         if (!res.ok) {
@@ -37,11 +36,10 @@ const PendingWorkSound = () => {
       })
       .then((data) => {
         console.log(data);
-        if (data.message === "Status updated to completed") {
-            toast.success("Status updated to completed");
-            window.location.reload();
+        if (data.message === "status updated successfully") {
+          toast.success("Status updated to completed");
           setIsButtonDisabled(true);
-          refetch(); 
+          refetch();
         } else {
           console.error("Failed to update status");
           toast.error("Failed to update status");
@@ -52,26 +50,39 @@ const PendingWorkSound = () => {
       });
   };
 
-  const filteredPendingWork = pendingWork.filter((work) => work.status !== "done");
+  const filteredPendingWork = pendingWork.filter(
+    (work) => work.status !== "done"
+  );
 
   return (
-    <div className="ml-10 grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 text-justify">
-      {filteredPendingWork.map((work) => (
-        <div key={work.sound_systemID} className="card mt-5 w-96 bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">{work.quantity}</h2>
-            <div className="card-actions justify-end">
-              <button
-                className="btn btn-xs text-xl"
-                onClick={() => handleUpdateStatus(work.sound_systemID)}
-                disabled={isButtonDisabled}
-              >
-                <TiTickOutline />
-              </button>
+    <div>
+      {filteredPendingWork.length === 0 ? (
+          <p className="text-3xl font-bold mb-10 mt-5 text-teal-400">No pending work</p>
+        ) : (<>
+            <h1 className="text-3xl font-bold mb-10 mt-5">Pending Work</h1>
+        <div className="ml-10 grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 text-justify">
+          {filteredPendingWork.map((work) => (
+            <div
+              key={work.sound_systemID}
+              className="card mt-5 w-96 bg-base-100 shadow-xl"
+            >
+              <div className="card-body">
+                <h2 className="card-title">{work.quantity}</h2>
+                <div className="card-actions justify-end">
+                  <button
+                    className="btn btn-xs text-xl"
+                    onClick={() => handleUpdateStatus(work.sound_systemID)}
+                    disabled={isButtonDisabled}
+                  >
+                    <TiTickOutline />
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
+        </>
+      )}
     </div>
   );
 };
