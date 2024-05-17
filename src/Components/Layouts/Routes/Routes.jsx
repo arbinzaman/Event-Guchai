@@ -11,6 +11,7 @@ import AllUsers from "../../Dashboard/AllUsers";
 import ALlBookings from "../../Dashboard/AllBookings";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import SoundSystem from "../../Dashboard/SoundSystem/SoundSystem";
+import PendingWorkSound from "../../Dashboard/SoundSystem/PendingWorkSound";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,12 @@ const router = createBrowserRouter([
         path: "/dashboard/sound-system",
         element: (
            <SoundSystem/>
+        ),
+      },
+      {
+        path: "/dashboard/pending-works-sound",
+        element: (
+           <PendingWorkSound/>
         ),
       },
     ],

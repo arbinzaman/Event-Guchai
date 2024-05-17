@@ -7,9 +7,9 @@ import useUserRoles from "../../../Hooks/UseUserRole";
 import { useContext } from "react";
 
 const DashBoardLayouts = () => {
-    const { user } = useContext(AuthContext);
-    // const [isAdmin] = useAdmin(user?.email);
-  const vendorRole=useUserRoles(user?.email)
+  const { user } = useContext(AuthContext);
+  // const [isAdmin] = useAdmin(user?.email);
+  const vendorRole = useUserRoles(user?.email);
   // console.log(vendorRole);
   return (
     <div className="font-serif">
@@ -32,9 +32,10 @@ const DashBoardLayouts = () => {
             className="drawer-overlay"
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-       
             <li>
-              <Link to="/dashboard" className="text-2xl">DashBoard</Link>
+              <Link to="/dashboard" className="text-2xl">
+                DashBoard
+              </Link>
             </li>
 
             <li>
@@ -43,13 +44,14 @@ const DashBoardLayouts = () => {
             <li>
               <Link to="/dashboard/booking">Bookings</Link>
             </li>
-            {vendorRole.vendorRoles =="sound_system" && (
-        <>
-            <li>
-              <Link to="/dashboard/sound-system">Sound System</Link>
-            </li>
-            </>
-          )}
+            {vendorRole.vendorRoles == "sound_system" && (
+              <>
+                <li>
+                  <Link to="/dashboard/sound-system">Sound System</Link>
+                  <Link to="/dashboard/pending-works-sound">Pending Works</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
