@@ -10,6 +10,7 @@ import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import AllUsers from "../../Dashboard/AllUsers";
 import ALlBookings from "../../Dashboard/AllBookings";
 import AdminRoute from "./AdminRoute/AdminRoute";
+import SoundSystem from "../../Dashboard/SoundSystem/SoundSystem";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,12 @@ const router = createBrowserRouter([
           <AdminRoute>
            <ALlBookings/>
           </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/sound-system",
+        element: (
+           <SoundSystem/>
         ),
       },
     ],

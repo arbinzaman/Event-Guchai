@@ -1,12 +1,16 @@
 // import  { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
-// import { AuthContext } from "../../../Api/Context/AuthProvider";
+import { AuthContext } from "../../../Api/Context/AuthProvider";
 // import useAdmin from "../../../Hooks/UseAdmin";
 import NavBar from "../../Shared/Header/NavBar";
+import useUserRoles from "../../../Hooks/UseUserRole";
+import { useContext } from "react";
 
 const DashBoardLayouts = () => {
-  //   const { user } = useContext(AuthContext);
-  //   const [isAdmin] = useAdmin(user?.email);
+    const { user } = useContext(AuthContext);
+    // const [isAdmin] = useAdmin(user?.email);
+  const vendorRole=useUserRoles(user?.email)
+  // console.log(vendorRole);
   return (
     <div className="font-serif">
       <NavBar></NavBar>
@@ -39,6 +43,13 @@ const DashBoardLayouts = () => {
             <li>
               <Link to="/dashboard/booking">Bookings</Link>
             </li>
+            {vendorRole.vendorRoles =="sound_system" && (
+        <>
+            <li>
+              <Link to="/dashboard/sound-system">Sound System</Link>
+            </li>
+            </>
+          )}
           </ul>
         </div>
       </div>

@@ -22,14 +22,13 @@ const Card = () => {
         </h2>
       </div>
       <div className="grid grid-cols-3 md:grid-cols-3 sm:grid-cols-1 text-justify">
-                {events.map((event) => (
-                  <SinglePricingCard
-                    key={event.eventsID}
-                    event={event}
-                  ></SinglePricingCard>
-                ))}
-              </div>
- 
+        {events.map((event) => (
+          <SinglePricingCard
+            key={event.eventsID}
+            event={event}
+          ></SinglePricingCard>
+        ))}
+      </div>
     </>
   );
 };

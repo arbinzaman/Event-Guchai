@@ -7,21 +7,13 @@ const SinglePricingCard = ({ event }) => {
   const customerEmail = user?.email;
 
   const {
-    // eslint-disable-next-line react/prop-types
     eventTitle,
-    // eslint-disable-next-line react/prop-types
     price,
-    // eslint-disable-next-line react/prop-types
     shortDescription,
-    // eslint-disable-next-line react/prop-types
     food,
-    // eslint-disable-next-line react/prop-types
     people,
-    // eslint-disable-next-line react/prop-types
     sound_system,
-    // eslint-disable-next-line react/prop-types
     decoration,
-    // eslint-disable-next-line react/prop-types
     media,
   } = event;
   console.log(event);

@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Api/Context/AuthProvider";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
-  console.log(isAdmin);
+  // console.log(isAdmin);
   const location = useLocation();
   const handleLogOut = () => {
     logOut()

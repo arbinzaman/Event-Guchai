@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 const AllUsers = () => {
   const [displayUser, setDisplayUser] = useState();
-  console.log(displayUser);
+  // console.log(displayUser);
   const url = `http://localhost:3001/users`;
 
   const { data: users = [], refetch } = useQuery({

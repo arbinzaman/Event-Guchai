@@ -23,7 +23,7 @@ const Register = () => {
     if (firstSelectValue !== "vendor") {
       secondSelect.style.display = "block";
       addOption(secondSelect, "Select Vendor Type", "");
-      addOption(secondSelect, "musician", "musician");
+      addOption(secondSelect, "sound_system", "sound_system");
       addOption(secondSelect, "sound_system", "sound_system");
       addOption(secondSelect, "decorator", "decorator");
       addOption(secondSelect, "media", "media");
