@@ -20,40 +20,46 @@ const SinglePricingCard = ({ event }) => {
   console.log(event);
 
   const handleBookEvent = () => {
-    const bookEvent = {
-      eventTitle,
-      customerEmail,
-      price,
-      food,
-      people,
-      sound_system,
-      decoration,
-      media,
-    };
-    console.log(bookEvent);
-    fetch("http://localhost:3001/bookings", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(bookEvent),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        return res.json();
+    if (user) {
+      const bookEvent = {
+        customerEmail,
+        eventTitle,
+        price,
+        food,
+        people,
+        sound_system,
+        decoration,
+        media,
+      };
+      console.log(bookEvent);
+
+      fetch("http://localhost:3001/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookEvent),
       })
-      .then((data) => {
-        console.log(data);
-        if (data.insertId) {
-          toast.success("booking added success");
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then((data) => {
           console.log(data);
-        } else {
-          toast.error("booking added failed");
-        }
-      })
-      .catch((err) => console.log(err));
+          if (data.insertId) {
+            toast.success("Event booked successful");
+            window.location.reload();
+            console.log(data);
+          } else {
+            toast.error("Event book failed");
+          }
+        })
+        .catch((err) => console.log(err));
+    } else {
+      toast.error("Please login to book event");
+    }
   };
   return (
     <div>

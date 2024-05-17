@@ -80,7 +80,7 @@ const NavBar = () => {
                 <a>Contact Us</a>
               </li>
             </Link>
-            {isAdmin && (
+            {user && (
               <>
                  <Link to="/dashboard">
                 <li>

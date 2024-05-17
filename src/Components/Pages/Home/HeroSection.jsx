@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HeroSection = () => {
   return (
     <section className=" font-serif">
@@ -13,11 +15,11 @@ const HeroSection = () => {
             {" "}
             Transform the way you organize events with our intuitive event
             management system. From effortless planning to flawless execution,
-            we've got you covered every step of the way. Streamline
+            we`&apos;`ve got you covered every step of the way. Streamline
             registration, engage attendees, and elevate experiences with
             powerful tools and unparalleled support. Say goodbye to event
-            headaches and hello to success. Let's make your next event
-            unforgettable. Start now."
+            headaches and hello to success. Let`&apos;`s make your next event
+            unforgettable. Start now.
           </p>
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             <a
@@ -27,13 +29,15 @@ const HeroSection = () => {
             >
               Get Started
             </a>
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="px-8 py-3 text-lg font-semibold border rounded border-black-100"
-            >
-              Contact
-            </a>
+            <Link to="/contactus">
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                className="px-8 py-3 text-lg font-semibold border rounded border-black-100"
+              >
+                Contact
+              </a>
+            </Link>
           </div>
         </div>
         <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">

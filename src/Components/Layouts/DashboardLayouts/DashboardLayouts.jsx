@@ -33,17 +33,27 @@ const DashBoardLayouts = () => {
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             <li>
-              <Link to="/dashboard" className="text-2xl">
-                DashBoard
+              <Link to="/dashboard/my-booking" className="text-2xl">
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link to="/dashboard/my-booking">
+                My Bookings
               </Link>
             </li>
 
-            <li>
-              <Link to="/dashboard">Users</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/booking">Bookings</Link>
-            </li>
+            {user?.role == "admin" && (
+              <>
+                <li>
+                  <Link to="/dashboard/all-users">Users</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/booking">Bookings</Link>
+                </li>
+              </>
+            )}
+
             {vendorRole.vendorRoles == "sound_system" && (
               <>
                 <li>

@@ -8,10 +8,11 @@ import Register from "../../Pages/Register/Register";
 import DashboardLayouts from "../DashboardLayouts/DashboardLayouts";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import AllUsers from "../../Dashboard/AllUsers";
-import ALlBookings from "../../Dashboard/AllBookings";
+import ALlBookings from "../../Dashboard/CustomerBookings/AllBookings";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import SoundSystem from "../../Dashboard/SoundSystem/SoundSystem";
 import PendingWorkSound from "../../Dashboard/SoundSystem/PendingWorkSound";
+import CustomerBooking from "../../Dashboard/CustomerBookings/CustomerBooking";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/all-users",
         element: (
           <AdminRoute>
             <AllUsers></AllUsers>
@@ -75,6 +76,12 @@ const router = createBrowserRouter([
         path: "/dashboard/pending-works-sound",
         element: (
            <PendingWorkSound/>
+        ),
+      },
+      {
+        path: "/dashboard/my-booking",
+        element: (
+           <CustomerBooking/>
         ),
       },
     ],
