@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
+import { MdDelete } from "react-icons/md";
+import toast from "react-hot-toast";
 
 const CustomerBooking = () => {
   const { user } = useContext(AuthContext);
@@ -15,6 +17,27 @@ const CustomerBooking = () => {
       return data;
     },
   });
+
+  
+  // handleDeleteEvent
+  const handleDeleteEvent = (bookingID ) => {
+    console.log(bookingID);
+    fetch(`http://localhost:3001/bookings/${bookingID }`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.message === "booking cancelled successful") {
+          toast.error("booking cancelled successful");
+          window.location.reload();
+          // const remainingUsers = displayUser.filter(
+          //   (ent) => ent.eventID !== eventID
+          // );
+          // setDisplayUser(remainingUsers);
+        }
+      });
+  };
 
   return (
     <div>
@@ -38,6 +61,7 @@ const CustomerBooking = () => {
                   <th>Sound System</th>
                   <th>Decoration</th>
                   <th>Media Support</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,6 +76,12 @@ const CustomerBooking = () => {
                     <td>{book.sound_system}</td>
                     <td>{book.decoration}</td>
                     <td>{book.media}</td>
+                    <td>  <button
+                    onClick={() => handleDeleteEvent(book.bookingID )}
+                    className=" btn-xs text-lg btn-danger"
+                  >
+                    <MdDelete className="text-2xl " />
+                  </button></td>
                   </tr>
                 ))}
               </tbody>

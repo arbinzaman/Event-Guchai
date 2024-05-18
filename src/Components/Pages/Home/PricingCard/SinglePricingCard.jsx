@@ -3,13 +3,14 @@ import { AuthContext } from "../../../../Api/Context/AuthProvider";
 import toast from "react-hot-toast";
 import { SlCalender } from "react-icons/sl";
 import { MdDelete } from "react-icons/md";
+import useUserRoles from "../../../../Hooks/UseUserRole";
 
 // eslint-disable-next-line react/prop-types
 const SinglePricingCard = ({ event }) => {
   // const [displayUser, setDisplayUser] = useState();
   const { user } = useContext(AuthContext);
   const customerEmail = user?.email;
-
+  const roles = useUserRoles(user?.email);
   const {
     eventID,
     eventTitle,
@@ -183,7 +184,7 @@ const SinglePricingCard = ({ event }) => {
 
               <button>
                 {" "}
-                {user?.role !== "admin" && (
+                {roles.role == "admin" && (
                   <button
                     onClick={() => handleDeleteEvent(eventID)}
                     className=" btn-xs text-lg btn-danger"

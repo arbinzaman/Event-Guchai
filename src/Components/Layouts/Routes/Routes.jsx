@@ -20,6 +20,7 @@ import PendingWorkCatering from "../../Dashboard/Catering/PendingWorkCatering";
 import Media from "../../Dashboard/Media/Media";
 import PendingWorkMedia from "../../Dashboard/Media/PendingWorkMedia";
 import UpdateEvent from "../../Pages/Event/UpdateEvent";
+import Profile from "../../Dashboard/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,14 @@ const router = createBrowserRouter([
           <AdminRoute>
             <AllUsers></AllUsers>
           </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/profile",
+        element: (
+          <PrivateRoutes>
+            <Profile></Profile>
+          </PrivateRoutes>
         ),
       },
       {

@@ -13,13 +13,7 @@ const HeroSection = () => {
           </p>
           <p className="mt-6 mb-8 text-lg sm:mb-12">
             {" "}
-            Transform the way you organize events with our intuitive event
-            management system. From effortless planning to flawless execution,
-            we&apos;ve got you covered every step of the way. Streamline
-            registration, engage attendees, and elevate experiences with
-            powerful tools and unparalleled support. Say goodbye to event
-            headaches and hello to success. Let&apos;s make your next event
-            unforgettable. Start now.
+            Transform your event planning with our intuitive system. Streamline registration, engage attendees, and elevate experiences. Say goodbye to headaches and hello to success. Make your next event unforgettable.
           </p>
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             <a
