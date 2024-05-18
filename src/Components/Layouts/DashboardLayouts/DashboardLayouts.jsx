@@ -47,6 +47,13 @@ const DashBoardLayouts = () => {
             <li>
               <Link to="/dashboard">My Bookings</Link>
             </li>
+            {/* {roles?.roles == "user" && (
+              <> */}
+                <li>
+                  <Link to="/dashboard/customize-plan">Customize Plan</Link>
+                </li>
+              {/* </>
+            )} */}
 
             {roles?.roles == "admin" && (
               <>

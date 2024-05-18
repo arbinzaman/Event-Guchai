@@ -1,7 +1,15 @@
+import { Link } from "react-router-dom";
+
 const ServiceTestimonial = () => {
   return (
     <>
-    <button className="btn btn-wide bg-cyan-300 text-xl">Wanna customize?</button>
+      <Link to="/dashboard/customize-plan">
+        {" "}
+        <button className="btn btn-wide bg-cyan-300 text-xl">
+          Wanna customize?
+        </button>
+      </Link>
+
       <section className="p-6 font-serif  text-black-100 text-black-100 mt-10 mb-10">
         <div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3">
           <div className="flex flex-col justify-start m-2 lg:m-6">

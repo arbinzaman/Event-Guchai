@@ -58,12 +58,12 @@ const UpdateEvent = () => {
           <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-base-300 text-black">
             <div className="text-4xl space-y-2 col-span-full lg:col-span-1">
               <p className="font-medium">Update Event</p>
-              <p className="text-xs">
+              {/* <p className="text-xs">
                 Stay informed with the latest updates! Join us as we unveil
                 exciting new developments and enhancements to our event.
                 Don&apos;t miss out on the opportunity to be part of something
                 special. Your presence matters!
-              </p>
+              </p> */}
             </div>
             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
               <div className="col-span-full sm:col-span-3">
