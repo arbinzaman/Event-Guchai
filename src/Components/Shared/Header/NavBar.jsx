@@ -68,7 +68,8 @@ const NavBar = () => {
             </ul>
           </div>
           <Link to="/">
-            <a className="btn btn-ghost text-xl">Eventগুছাই</a>
+            <img src="/src/assets/New folder/event guchai.png" alt="" className="h-24 w-52"/>
+            {/* <a className="btn btn-ghost text-xl">Eventগুছাই</a> */}
           </Link>
         </div>
 
