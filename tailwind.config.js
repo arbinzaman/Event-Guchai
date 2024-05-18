@@ -4,5 +4,6 @@ export default {
   theme: {
     themes: ["light", "cupcake", "pastel"],
   },
+  // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],
 };

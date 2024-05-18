@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../../Api/Context/AuthProvider";
 import toast from "react-hot-toast";
+import { SlCalender } from "react-icons/sl";
 
 // eslint-disable-next-line react/prop-types
 const SinglePricingCard = ({ event }) => {
@@ -156,10 +157,10 @@ const SinglePricingCard = ({ event }) => {
             </ul>
             <div className="card-actions justify-end">
               <button
-                className="btn btn-primary"
+                className="btn bg-cyan-400"
                 onClick={() => handleBookEvent()}
               >
-                Book
+               <SlCalender className="text-2xl " />
               </button>
             </div>
           </div>

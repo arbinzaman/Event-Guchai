@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
  import useAdmin from "../../../Hooks/UseAdmin";
+ import { HiOutlineLogout } from "react-icons/hi";
+ import { IoLogIn } from "react-icons/io5";
+ import { TbChecklist } from "react-icons/tb";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
@@ -104,25 +107,25 @@ const NavBar = () => {
               </span>
               <button
                 onClick={handleLogOut}
-                className="btn btn-ghost normal-case text-xl"
+                className=""
               >
-                Log Out
+               <HiOutlineLogout className="text-2xl" />
               </button>
             </>
           ) : (
             <>
               {location.pathname === "/login" || (
                 <Link to="/login" className="btn btn-ghost normal-case text-xl">
-                  Login
+                <IoLogIn className="text-2xl" />
                 </Link>
               )}
 
               {location.pathname === "/register" || (
                 <Link
                   to="/register"
-                  className="btn btn-ghost normal-case text-xl"
+                  className="btn btn-ghost normal-case "
                 >
-                  Register
+                 <TbChecklist className="text-2xl" />
                 </Link>
               )}
             </>

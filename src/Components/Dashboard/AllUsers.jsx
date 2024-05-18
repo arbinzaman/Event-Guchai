@@ -92,7 +92,7 @@ const AllUsers = () => {
                   {user?.role !== "admin" && (
                     <button
                       onClick={() => handleMakeAdmin(user.userID)}
-                      className="btn btn-xs text-lg btn-primary"
+                      className=" btn-xs text-lg btn-red"
                     >
                       <RiAdminFill />
                     </button>
@@ -102,7 +102,7 @@ const AllUsers = () => {
                   {user?.role !== "vendor" && (
                     <button
                       onClick={() => handleMakeVendor(user.userID)}
-                      className="btn btn-xs text-lg text-white bg-cyan-500"
+                      className=" btn-xs text-lg"
                     >
                       <GrUserWorker />
                     </button>
@@ -112,7 +112,7 @@ const AllUsers = () => {
                   {user?.role !== "admin" && (
                     <button
                       onClick={() => handleDeleteUser(user.userID)}
-                      className="btn btn-xs text-lg btn-danger"
+                      className=" btn-xs text-lg btn-danger"
                     >
                       <MdDelete />
                     </button>
