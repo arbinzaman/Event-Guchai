@@ -19,6 +19,7 @@ import Catering from "../../Dashboard/Catering/Catering";
 import PendingWorkCatering from "../../Dashboard/Catering/PendingWorkCatering";
 import Media from "../../Dashboard/Media/Media";
 import PendingWorkMedia from "../../Dashboard/Media/PendingWorkMedia";
+import UpdateEvent from "../../Pages/Event/UpdateEvent";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,14 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      // {
+      //   path: "/update-event",
+      //   element: (
+      //     <AdminRoute>
+      //       <UpdateEvent></UpdateEvent>
+      //     </AdminRoute>
+      //   ),
+      // },
     ],
   },
 
@@ -68,63 +77,53 @@ const router = createBrowserRouter([
         path: "/dashboard/booking",
         element: (
           <AdminRoute>
-           <ALlBookings/>
+            <ALlBookings />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/update-event",
+        element: (
+          <AdminRoute>
+            <UpdateEvent></UpdateEvent>
           </AdminRoute>
         ),
       },
       {
         path: "/dashboard/sound-system",
-        element: (
-           <SoundSystem/>
-        ),
+        element: <SoundSystem />,
       },
       {
         path: "/dashboard/pending-works-sound",
-        element: (
-           <PendingWorkSound/>
-        ),
+        element: <PendingWorkSound />,
       },
       {
         path: "/dashboard/decorator",
-        element: (
-           <Decorator/>
-        ),
+        element: <Decorator />,
       },
       {
         path: "/dashboard/pending-works-decorator",
-        element: (
-           <PendingWorkDecorator/>
-        ),
+        element: <PendingWorkDecorator />,
       },
       {
         path: "/dashboard/catering",
-        element: (
-           <Catering/>
-        ),
+        element: <Catering />,
       },
       {
         path: "/dashboard/pending-works-media",
-        element: (
-           <PendingWorkMedia/>
-        ),
+        element: <PendingWorkMedia />,
       },
       {
         path: "/dashboard/media",
-        element: (
-           <Media/>
-        ),
+        element: <Media />,
       },
       {
         path: "/dashboard/pending-works-catering",
-        element: (
-           <PendingWorkCatering/>
-        ),
+        element: <PendingWorkCatering />,
       },
       {
         path: "/dashboard",
-        element: (
-           <CustomerBooking/>
-        ),
+        element: <CustomerBooking />,
       },
     ],
   },

@@ -28,7 +28,7 @@ const DashBoardLayouts = () => {
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             <li className="flex">
               <Link to="/dashboard" className="text-2xl">
-                <RxAvatar className="ml-auto h-10 w-10  text-gray-500" />
+                <RxAvatar className="ml-auto h-10 w-10  text-black-500" />
                 <p className="font-bold text">{userName?.userName}</p>
                 <ul>
                   <li>
@@ -55,6 +55,9 @@ const DashBoardLayouts = () => {
                 </li>
                 <li>
                   <Link to="/dashboard/booking">Bookings</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/update-event">Update New Event</Link>
                 </li>
               </>
             )}

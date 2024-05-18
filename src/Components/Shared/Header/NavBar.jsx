@@ -7,11 +7,13 @@ import { IoLogIn } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
 import { TbChecklist } from "react-icons/tb";
 import { RxAvatar } from "react-icons/rx";
+import useUserRoles from "../../../Hooks/UseUserRole";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   const location = useLocation();
+  const userName = useUserRoles(user?.email);
 
   const handleLogOut = () => {
     logOut()
@@ -114,10 +116,15 @@ const NavBar = () => {
                     alt=""
                   />
                 ) : (
-                  <RxAvatar className="ml-auto h-8 w-10  text-gray-500" />
+                  <>
+                    <div className="flex ml-auto gap-4">
+                      <p className="">{userName.userName}</p>
+                      <RxAvatar className=" h-8 w-10  text-gray-500" />
+                    </div>
+                  </>
                 )}
               </span>
-              <button onClick={handleLogOut} className="">
+              <button onClick={handleLogOut} className="gap-5">
                 <HiOutlineLogout className="text-2xl " />
               </button>
             </>
