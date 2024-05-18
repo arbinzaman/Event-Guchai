@@ -1,16 +1,16 @@
-// import  { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
-// import useAdmin from "../../../Hooks/UseAdmin";
 import NavBar from "../../Shared/Header/NavBar";
 import useUserRoles from "../../../Hooks/UseUserRole";
 import { useContext } from "react";
+import { RxAvatar } from "react-icons/rx";
 
 const DashBoardLayouts = () => {
   const { user } = useContext(AuthContext);
   const vendorRole = useUserRoles(user?.email);
   const roles = useUserRoles(user?.email);
-  // console.log(roles.roles);
+  const userName = useUserRoles(user?.email);
+  // console.log(userName.userName);
   return (
     <div className="font-serif">
       <NavBar></NavBar>
@@ -18,12 +18,6 @@ const DashBoardLayouts = () => {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col ">
           <Outlet></Outlet>
-          <label
-            htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
-          >
-            Open drawer
-          </label>
         </div>
         <div className="drawer-side">
           <label
@@ -32,9 +26,22 @@ const DashBoardLayouts = () => {
             className="drawer-overlay"
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-            <li>
+            <li className="flex">
               <Link to="/dashboard" className="text-2xl">
-                Dashboard
+                <RxAvatar className="ml-auto h-10 w-10  text-gray-500" />
+                <p className="font-bold text">{userName?.userName}</p>
+                <ul>
+                  <li>
+                    {" "}
+                    <p className="font-bold text-xs">{roles?.roles}</p>
+                  </li>
+                  <li>
+                    {" "}
+                    <p className="font-bold text-xs">
+                      {vendorRole?.vendorRoles}
+                    </p>
+                  </li>
+                </ul>
               </Link>
             </li>
             <li>
@@ -84,9 +91,7 @@ const DashBoardLayouts = () => {
               <>
                 <li>
                   <Link to="/dashboard/media">Media</Link>
-                  <Link to="/dashboard/pending-works-media">
-                    Pending Works
-                  </Link>
+                  <Link to="/dashboard/pending-works-media">Pending Works</Link>
                 </li>
               </>
             )}

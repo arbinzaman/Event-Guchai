@@ -1,24 +1,30 @@
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
- import useAdmin from "../../../Hooks/UseAdmin";
- import { HiOutlineLogout } from "react-icons/hi";
- import { IoLogIn } from "react-icons/io5";
- import { TbChecklist } from "react-icons/tb";
+import useAdmin from "../../../Hooks/UseAdmin";
+import { HiOutlineLogout } from "react-icons/hi";
+import { IoLogIn } from "react-icons/io5";
+import { MdDashboard } from "react-icons/md";
+import { TbChecklist } from "react-icons/tb";
+import { RxAvatar } from "react-icons/rx";
+
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
-  // console.log(isAdmin);
   const location = useLocation();
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})
       .catch(() => console.error("error"));
   };
+
   return (
     <div className="font-serif">
       <div className="navbar bg-base-100">
+        {/* Navbar Start */}
         <div className="navbar-start">
+          {/* Dropdown Menu for Mobile */}
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -41,39 +47,33 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <Link to="/events">
-                {" "}
                 <li>
                   <a>Events</a>
                 </li>
               </Link>
-
               <Link to="/contactus">
                 <li>
                   <a>Contact Us</a>
                 </li>
               </Link>
-
               {isAdmin && (
-              <>
-                 <Link to="/dashboard">
-                <li>
-                  <a>Dashboard</a>
-                </li>
-              </Link>
-              </>
-            )}
-             
+                <Link to="/dashboard">
+                  <li>
+                    <a>Dashboard</a>
+                  </li>
+                </Link>
+              )}
             </ul>
           </div>
           <Link to="/">
-            {" "}
             <a className="btn btn-ghost text-xl">Eventগুছাই</a>
           </Link>
         </div>
+
+        {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <Link to="/events">
-              {" "}
               <li>
                 <a>Events</a>
               </li>
@@ -85,47 +85,53 @@ const NavBar = () => {
             </Link>
             {user && (
               <>
-                 <Link to="/dashboard">
-                <li>
-                  <a>Dashboard</a>
-                </li>
-              </Link>
+                <Link to="/dashboard">
+                  <li>
+                    <a>Dashboard</a>
+                  </li>
+                </Link>
+                <label
+                  htmlFor="my-drawer-2"
+                  className="btn lg:hidden  drawer-button"
+                >
+                  <MdDashboard className="text-xl" />
+                </label>
               </>
             )}
           </ul>
         </div>
+
+        {/* Navbar End */}
         <div className="navbar-end">
           {user?.uid ? (
             <>
               <span className="">
-                <img
-                  src={user?.photoURL}
-                  title={user?.displayName}
-                  className=" ml-auto h-10 rounded-full"
-                  alt=""
-                />
+                {user?.photoURL ? (
+                  <img
+                    src={user?.photoURL}
+                    title={user?.displayName}
+                    className="ml-auto h-10 rounded-full"
+                    alt=""
+                  />
+                ) : (
+                  <RxAvatar className="ml-auto h-8 w-10  text-gray-500" />
+                )}
               </span>
-              <button
-                onClick={handleLogOut}
-                className=""
-              >
-               <HiOutlineLogout className="text-2xl" />
+              <button onClick={handleLogOut} className="">
+                <HiOutlineLogout className="text-2xl " />
               </button>
             </>
           ) : (
             <>
               {location.pathname === "/login" || (
                 <Link to="/login" className="btn btn-ghost normal-case text-xl">
-                <IoLogIn className="text-2xl" />
+                  <IoLogIn className="text-2xl" />
                 </Link>
               )}
 
               {location.pathname === "/register" || (
-                <Link
-                  to="/register"
-                  className="btn btn-ghost normal-case "
-                >
-                 <TbChecklist className="text-2xl" />
+                <Link to="/register" className="btn btn-ghost normal-case ">
+                  <TbChecklist className="text-2xl" />
                 </Link>
               )}
             </>

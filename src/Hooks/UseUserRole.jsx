@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const useUserRoles = (email) => {
   const [roles, setRoles] = useState([]);
   const [vendorRoles, setVendorRole] = useState([]);
+  const [userName, setUserName] = useState([]);
   // console.log(roles);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -18,12 +19,14 @@ const useUserRoles = (email) => {
         })
         .then((data) => {
           const processedRoles = data.map((roleObj) => ({
+            userName: roleObj.userName,
             role: roleObj.role,
             vendorRole: roleObj.vendorRole
           }));
           // console.log(processedRoles);
           setRoles(processedRoles[0].role);
           setVendorRole(processedRoles[0].vendorRole);
+          setUserName(processedRoles[0].userName);
           setIsLoading(false);
         })
         .catch((err) => {
@@ -35,7 +38,7 @@ const useUserRoles = (email) => {
     }
   }, [email]);
 
-  return { roles,vendorRoles, isLoading, error };
+  return { roles,vendorRoles,userName, isLoading, error };
 };
 
 export default useUserRoles;
