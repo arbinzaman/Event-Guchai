@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { useState, useEffect, useContext } from "react";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../../Api/Context/AuthProvider";
 
 const CustomizationPlan = () => {
+  const { user } = useContext(AuthContext);
   const [foodValue, setFoodValue] = useState(100);
   const [soundSystemValue, setSoundSystemValue] = useState(1);
   const [mediaSelection, setMediaSelection] = useState(null);
@@ -11,6 +13,8 @@ const CustomizationPlan = () => {
     luxurious: false,
   });
   const [totalCost, setTotalCost] = useState(0);
+
+  const customerEmail = user?.email;
 
   const handleFood = (e) => {
     const value = parseInt(e.target.value, 10);
@@ -87,27 +91,56 @@ const CustomizationPlan = () => {
     setTotalCost(total);
   }, [foodValue, soundSystemValue, mediaSelection, decoration]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    let mediaPrice = 0;
+    if (mediaSelection === "Team Alpha") mediaPrice = 110000;
+    else if (mediaSelection === "Team Beta") mediaPrice = 240000;
+    else if (mediaSelection === "Team Charlie") mediaPrice = 1420000;
+
+    let decorationTitle = "";
+    let decorationPrice = 0;
+    if (decoration.moderate) {
+      decorationTitle = "Moderate Decoration";
+      decorationPrice = 150000;
+    } else if (decoration.premium) {
+      decorationTitle = "Premium Decoration";
+      decorationPrice = 750000;
+    } else if (decoration.luxurious) {
+      decorationTitle = "Luxurious Decoration";
+      decorationPrice = 1500000;
+    }
+
     const data = {
-      food: {
-        value: foodValue,
-        price: foodValue * 250,
-      },
-      soundSystem: {
-        value: soundSystemValue,
-        price: soundSystemValue * 5000,
-      },
-      media: mediaSelection,
-      decoration,
+      customerEmail,
+      foodQuantity: foodValue,
+      foodPrice: foodValue * 250,
+      mediaTeam: mediaSelection,
+      mediaPrice,
+      soundSystemQuantity: soundSystemValue,
+      soundSystemPrice: soundSystemValue * 5000,
+      decorationTitle,
+      decorationPrice,
     };
 
     console.log(data);
-    // try {
-    //   const response = await axios.post('/api/customization-plan', data);
-    //   console.log('Data sent to the backend:', response.data);
-    // } catch (error) {
-    //   console.error('Error sending data to the backend:', error);
-    // }
+    fetch("http://localhost:3001/custom-package", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertId) {
+          toast.success("Event added successfully");
+          console.log(data);
+        } else {
+          toast.error("Event addition failed");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleClear = () => {
@@ -124,7 +157,7 @@ const CustomizationPlan = () => {
 
   return (
     <div>
-      {/* food Area Start */}
+      {/* Food Area Start */}
       <div className="flex flex-col ml-5">
         <h1 className="text-3xl mb-5 font-bold">Food</h1>
         <fieldset className="space-y-1 sm:w-60 text-gray-100">
@@ -159,9 +192,9 @@ const CustomizationPlan = () => {
         />
       </div>
 
-      {/* food Area end */}
+      {/* Food Area End */}
 
-      {/* sound system Area Start */}
+      {/* Sound System Area Start */}
       <div className="flex flex-col ml-5">
         <h1 className="text-3xl mb-5 font-bold">Sound System</h1>
         <fieldset className="space-y-1 sm:w-60 text-gray-100">
@@ -196,9 +229,9 @@ const CustomizationPlan = () => {
         />
       </div>
 
-      {/* sound system Area end */}
+      {/* Sound System Area End */}
 
-      {/* Media Area start */}
+      {/* Media Area Start */}
       <h1 className="text-3xl mb-5 font-bold">Media</h1>
       <div className="ml-10 grid grid-cols-2 mt-10">
         {["Alpha", "Beta", "Charlie"].map((team, index) => (
@@ -215,7 +248,11 @@ const CustomizationPlan = () => {
               </p>
               <div className="card-actions justify-end">
                 <button
-                  className="btn btn-primary"
+                  className={`btn ${
+                    mediaSelection === `Team ${team}`
+                      ? "bg-green-500 text-white"
+                      : "btn-primary"
+                  }`}
                   onClick={() => handleMediaSelection(`Team ${team}`)}
                 >
                   Book
@@ -225,10 +262,9 @@ const CustomizationPlan = () => {
           </div>
         ))}
       </div>
+      {/* Media Area End */}
 
-      {/* Media Area end */}
-
-      {/* Decoration Area start */}
+      {/* Decoration Area Start */}
       <div className="mt-10 ml-10">
         <h1 className="text-3xl mb-5 font-bold">Decoration</h1>
         {["moderate", "premium", "luxurious"].map((type, index) => (
@@ -239,14 +275,16 @@ const CustomizationPlan = () => {
             </p>
             <input
               type="checkbox"
-              className="checkbox"
+              className={`checkbox ${
+                decoration[type] ? "bg-green-500 border-green-500" : ""
+              }`}
               checked={decoration[type]}
               onChange={() => handleDecorationChange(type)}
             />
           </div>
         ))}
       </div>
-      {/* Decoration Area end */}
+      {/* Decoration Area End */}
 
       <div className="mt-10 ml-10">
         <h1 className="text-3xl mb-5 font-bold">Total</h1>
@@ -257,7 +295,7 @@ const CustomizationPlan = () => {
           id="totalCost"
           disabled
         />
-        <button className="btn btn-primary mt-5" onClick={handleSubmit}>
+        <button className="btn bg-cyan-300 mt-5" onClick={handleSubmit}>
           Submit
         </button>
         <button className="btn btn-secondary mt-5 ml-3" onClick={handleClear}>
