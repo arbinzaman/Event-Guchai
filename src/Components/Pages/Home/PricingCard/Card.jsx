@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import SinglePricingCard from "./SinglePricingCard";
 
 const Card = () => {
-  const url = `http://localhost:3001/events`;
+  const url = `https://event-guchai-backend.vercel.app/events`;
   const { data: events = [] } = useQuery({
     queryKey: ["events"],
     queryFn: async () => {

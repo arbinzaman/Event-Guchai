@@ -5,7 +5,7 @@ import { TiTickOutline } from "react-icons/ti";
 
 const PendingWorkMedia = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const url = `http://localhost:3001/media`;
+  const url = `https://event-guchai-backend.vercel.app/media`;
 
   const { data: pendingWork = [], refetch } = useQuery({
     queryKey: ["pendingWork"],
@@ -22,7 +22,7 @@ const PendingWorkMedia = () => {
 
   const handleUpdateStatus = (mediaID) => {
     console.log(mediaID);
-    fetch(`http://localhost:3001/media/${mediaID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/media/${mediaID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

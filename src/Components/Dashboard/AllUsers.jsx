@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const AllUsers = () => {
   const [displayUser, setDisplayUser] = useState();
   // console.log(displayUser);
-  const url = `http://localhost:3001/users`;
+  const url = `https://event-guchai-backend.vercel.app/users`;
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
@@ -20,7 +20,7 @@ const AllUsers = () => {
 
   // handleMakeAdmin
   const handleMakeAdmin = (userID) => {
-    fetch(`http://localhost:3001/users/admin/${userID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/users/admin/${userID}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -34,7 +34,7 @@ const AllUsers = () => {
   };
 
   const handleMakeVendor = (userID) => {
-    fetch(`http://localhost:3001/users/${userID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/users/${userID}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -49,7 +49,7 @@ const AllUsers = () => {
 
   // handleDeleteUser
   const handleDeleteUser = (userID) => {
-    fetch(`http://localhost:3001/users/${userID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/users/${userID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

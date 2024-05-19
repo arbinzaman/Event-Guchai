@@ -21,7 +21,7 @@ const SingleMedia = ({ booking }) => {
     };
     console.log(bookSoundSystem);
 
-    fetch("http://localhost:3001/media", {
+    fetch("https://event-guchai-backend.vercel.app/media", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const SingleMedia = ({ booking }) => {
       .catch((err) => console.log(err));
 
 
-      fetch(`http://localhost:3001/bookings/bookings/media/${bookingID}`, {
+      fetch(`https://event-guchai-backend.vercel.app/bookings/bookings/media/${bookingID}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

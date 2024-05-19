@@ -5,7 +5,7 @@ import { TiTickOutline } from "react-icons/ti";
 
 const PendingWorkDecorator = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const url = `http://localhost:3001/decorator`;
+  const url = `https://event-guchai-backend.vercel.app/decorator`;
 
   const { data: pendingWork = [], refetch } = useQuery({
     queryKey: ["pendingWork"],
@@ -22,7 +22,7 @@ const PendingWorkDecorator = () => {
 
   const handleUpdateStatus = (decorationID) => {
     //    console.log(decorationID );
-    fetch(`http://localhost:3001/decorator/${decorationID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/decorator/${decorationID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

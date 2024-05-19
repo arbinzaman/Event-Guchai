@@ -38,7 +38,7 @@ const SinglePricingCard = ({ event }) => {
       };
       console.log(bookEvent);
 
-      fetch("http://localhost:3001/bookings", {
+      fetch("https://event-guchai-backend.vercel.app/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const SinglePricingCard = ({ event }) => {
   // handleDeleteEvent
   const handleDeleteEvent = (eventID) => {
     console.log(eventID);
-    fetch(`http://localhost:3001/events/${eventID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/events/${eventID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

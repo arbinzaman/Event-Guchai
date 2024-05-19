@@ -5,7 +5,7 @@ import { TiTickOutline } from "react-icons/ti";
 
 const PendingWorkSound = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const url = `http://localhost:3001/catering`;
+  const url = `https://event-guchai-backend.vercel.app/catering`;
 
   const { data: pendingWork = [], refetch } = useQuery({
     queryKey: ["pendingWork"],
@@ -22,7 +22,7 @@ const PendingWorkSound = () => {
 
   const handleUpdateStatus = (cateringID) => {
     console.log(cateringID);
-    fetch(`http://localhost:3001/catering/${cateringID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/catering/${cateringID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

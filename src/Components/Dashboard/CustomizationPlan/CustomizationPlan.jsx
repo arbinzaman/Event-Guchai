@@ -123,7 +123,7 @@ const CustomizationPlan = () => {
     };
 
     console.log(data);
-    fetch("http://localhost:3001/custom-package", {
+    fetch("https://event-guchai-backend.vercel.app/custom-package", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

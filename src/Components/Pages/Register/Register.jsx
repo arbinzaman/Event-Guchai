@@ -60,7 +60,7 @@ const Register = () => {
     };
     console.log(data);
 
-    fetch("http://localhost:3001/users", {
+    fetch("https://event-guchai-backend.vercel.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

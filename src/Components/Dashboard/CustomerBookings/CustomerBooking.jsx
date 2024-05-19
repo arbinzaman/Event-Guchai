@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const CustomerBooking = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:3001/bookings/${user.email}`;
+  const url = `https://event-guchai-backend.vercel.app/bookings/${user.email}`;
 
   const { data: booking = [] } = useQuery({
     queryKey: ["booking"],
@@ -22,7 +22,7 @@ const CustomerBooking = () => {
   // handleDeleteEvent
   const handleDeleteEvent = (bookingID ) => {
     console.log(bookingID);
-    fetch(`http://localhost:3001/bookings/${bookingID }`, {
+    fetch(`https://event-guchai-backend.vercel.app/bookings/${bookingID }`, {
       method: "DELETE",
     })
       .then((res) => res.json())

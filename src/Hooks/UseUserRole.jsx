@@ -10,7 +10,7 @@ const useUserRoles = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:3001/users/email/${email}`)
+      fetch(`https://event-guchai-backend.vercel.app/users/email/${email}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Failed to fetch user roles");

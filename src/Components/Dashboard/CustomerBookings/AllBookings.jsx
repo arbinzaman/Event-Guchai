@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const AllBookings = () => {
   //   const [displayUser, setDisplayUser] = useState();
-  const url = `http://localhost:3001/bookings`;
+  const url = `https://event-guchai-backend.vercel.app/bookings`;
 
   const { data: booking = [],  } = useQuery({
     queryKey: ["booking"],

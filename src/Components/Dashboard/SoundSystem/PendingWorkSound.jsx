@@ -5,7 +5,7 @@ import { TiTickOutline } from "react-icons/ti";
 
 const PendingWorkSound = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const url = `http://localhost:3001/sound-system`;
+  const url = `https://event-guchai-backend.vercel.app/sound-system`;
 
   const { data: pendingWork = [], refetch } = useQuery({
     queryKey: ["pendingWork"],
@@ -21,7 +21,7 @@ const PendingWorkSound = () => {
   });
 
   const handleUpdateStatus = (sound_systemID) => {
-    fetch(`http://localhost:3001/sound-system/${sound_systemID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/sound-system/${sound_systemID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -21,7 +21,7 @@ const SingleSoundSystem = ({ booking }) => {
     };
     console.log(bookSoundSystem);
 
-    fetch("http://localhost:3001/catering", {
+    fetch("https://event-guchai-backend.vercel.app/catering", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const SingleSoundSystem = ({ booking }) => {
       })
       .catch((err) => console.log(err));
 
-    fetch(`http://localhost:3001/bookings/catering/${bookingID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/bookings/catering/${bookingID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

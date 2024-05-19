@@ -21,7 +21,7 @@ const EventMainPage = () => {
         media: event.media,
       };
 
-      fetch("http://localhost:3001/bookings", {
+      fetch("https://event-guchai-backend.vercel.app/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const EventMainPage = () => {
     }
   };
 
-  const url = `http://localhost:3001/events`;
+  const url = `https://event-guchai-backend.vercel.app/events`;
   const { data: events = [] } = useQuery({
     queryKey: ["events"],
     queryFn: async () => {

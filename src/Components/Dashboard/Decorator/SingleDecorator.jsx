@@ -21,7 +21,7 @@ const SingleDecoration = ({ booking }) => {
     };
     console.log(bookSoundSystem);
 
-    fetch("http://localhost:3001/decorator", {
+    fetch("https://event-guchai-backend.vercel.app/decorator", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const SingleDecoration = ({ booking }) => {
       })
       .catch((err) => console.log(err));
 
-    fetch(`http://localhost:3001/bookings/decorator/${bookingID}`, {
+    fetch(`https://event-guchai-backend.vercel.app/bookings/decorator/${bookingID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

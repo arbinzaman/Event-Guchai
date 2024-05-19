@@ -8,7 +8,7 @@ const SoundSystem = () => {
   const { user } = useContext(AuthContext);
   const vendorRole = useUserRoles(user?.email);
 
-  const url = `http://localhost:3001/bookings`;
+  const url = `https://event-guchai-backend.vercel.app/bookings`;
 
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings"],

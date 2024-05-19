@@ -27,7 +27,7 @@ const UpdateEvent = () => {
     };
     console.log(data);
 
-    fetch("http://localhost:3001/events", {
+    fetch("https://event-guchai-backend.vercel.app/events", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
