@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/profile",
+        path: "/dashboard",
         element: (
           <PrivateRoutes>
             <Profile></Profile>
@@ -135,7 +135,7 @@ const router = createBrowserRouter([
         element: <PendingWorkCatering />,
       },
       {
-        path: "/dashboard",
+        path: "/dashboard/my-bookings",
         element: <CustomerBooking />,
       },
     ],

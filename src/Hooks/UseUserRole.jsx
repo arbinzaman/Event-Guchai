@@ -4,7 +4,7 @@ const useUserRoles = (email) => {
   const [roles, setRoles] = useState([]);
   const [vendorRoles, setVendorRole] = useState([]);
   const [userName, setUserName] = useState([]);
-  // console.log(roles);
+  console.log(roles);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 

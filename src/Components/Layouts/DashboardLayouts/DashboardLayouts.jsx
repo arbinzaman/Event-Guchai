@@ -27,7 +27,7 @@ const DashBoardLayouts = () => {
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             <li className="flex">
-              <Link to="/dashboard/profile" className="text-2xl">
+              <Link to="/dashboard" className="text-2xl">
                 <RxAvatar className="ml-auto h-10 w-10  text-black-500" />
                 <p className="font-bold text">{userName?.userName}</p>
                 <ul>
@@ -44,9 +44,13 @@ const DashBoardLayouts = () => {
                 </ul>
               </Link>
             </li>
-            <li>
-              <Link to="/dashboard">My Bookings</Link>
-            </li>
+
+            {roles.roles == "user" && (
+              <li>
+                <Link to="/dashboard/my-bookings">My Bookings</Link>
+              </li>
+            )}
+
             {roles?.roles == "user" && (
               <>
                 <li>

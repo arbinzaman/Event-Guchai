@@ -11,6 +11,7 @@ const SinglePricingCard = ({ event }) => {
   const { user } = useContext(AuthContext);
   const customerEmail = user?.email;
   const roles = useUserRoles(user?.email);
+  console.log(roles.roles);
   const {
     eventID,
     eventTitle,
@@ -175,16 +176,19 @@ const SinglePricingCard = ({ event }) => {
               </li>
             </ul>
             <div className="card-actions justify-end">
-              <button
-                className=""
-                onClick={() => handleBookEvent()}
-              >
-                <SlCalender className="text-2xl mll-10 " />
-              </button>
-
+             {
+                roles.roles == "user" && (
+                  <button
+                  onClick={handleBookEvent}
+                  className="btn-xs text-lg btn-primary"
+                >
+                  <SlCalender className="text-2xl " />
+                </button>
+                )
+             }
               <button>
                 {" "}
-                {roles.role == "admin" && (
+                {roles.roles == "admin" && (
                   <button
                     onClick={() => handleDeleteEvent(eventID)}
                     className=" btn-xs text-lg btn-danger"

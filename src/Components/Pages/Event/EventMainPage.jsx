@@ -3,10 +3,12 @@ import { useContext } from "react";
 import toast from "react-hot-toast";
 import { SlCalender } from "react-icons/sl";
 import { AuthContext } from "../../../Api/Context/AuthProvider";
+import useUserRoles from "../../../Hooks/UseUserRole";
 
 const EventMainPage = () => {
   const { user } = useContext(AuthContext);
   const customerEmail = user?.email;
+  const roles = useUserRoles(user?.email);
 
   const handleBookEvent = (event) => {
     if (user) {
@@ -159,12 +161,16 @@ const EventMainPage = () => {
                       </li>
                     </ul>
                     <div className="card-actions justify-end">
-                      <button
-                        className="btn bg-cyan-400"
-                        onClick={() => handleBookEvent(event)}
-                      >
-                        <SlCalender className="text-xl" />
-                      </button>
+                      {roles.roles == "user" && (
+                        <>
+                          <button
+                            className="btn bg-cyan-400"
+                            onClick={() => handleBookEvent(event)}
+                          >
+                            <SlCalender className="text-xl" />
+                          </button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

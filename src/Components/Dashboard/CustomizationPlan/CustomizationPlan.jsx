@@ -19,13 +19,13 @@ const CustomizationPlan = () => {
   const handleFood = (e) => {
     const value = parseInt(e.target.value, 10);
     setFoodValue(value);
-    toast.success(`Food value set to ${value}`);
+    // toast.success(`Food value set to ${value}`);
   };
 
   const handleSoundSystem = (e) => {
     const value = parseInt(e.target.value, 10);
     setSoundSystemValue(value);
-    toast.success(`Sound system value set to ${value}`);
+    // toast.success(`Sound system value set to ${value}`);
   };
 
   const handleMediaSelection = (selection) => {
@@ -239,12 +239,34 @@ const CustomizationPlan = () => {
             <div className="card-body">
               <h2 className="card-title">Team {team}</h2>
               <p>
-                {team === "Alpha" &&
-                  "1 Senior Photographer, 2 Junior Photographers, 1 Cinematographer"}
-                {team === "Beta" &&
-                  "2 Senior Photographers, 3 Junior Photographers, 2 Cinematographers"}
-                {team === "Charlie" &&
-                  "5 Senior Photographers, 7 Junior Photographers, 3 Senior Cinematographers, 2 Junior Cinematographers"}
+                {team === "Alpha" && (
+                  <>
+                    <p>
+                      1 Senior Photographer, 2 Junior Photographers, 1
+                      Cinematographer{" "}
+                    </p>
+                    <p>Team Alpha Price : 110000</p>
+                  </>
+                )}
+                {team === "Beta" && (
+                  <>
+                    {" "}
+                    <p>
+                      2 Senior Photographers, 3 Junior Photographers, 2
+                      Cinematographers
+                    </p>
+                    <p>Team Beta Price : 240000</p>
+                  </>
+                )}
+                {team === "Charlie" && (
+                  <>
+                    <p>
+                      5 Senior Photographers, 7 Junior Photographers, 3 Senior
+                      Cinematographers, 2 Junior Cinematographers{" "}
+                    </p>
+                    <p>Team Charlie Price : 1420000</p>
+                  </>
+                )}
               </p>
               <div className="card-actions justify-end">
                 <button
@@ -267,12 +289,25 @@ const CustomizationPlan = () => {
       {/* Decoration Area Start */}
       <div className="mt-10 ml-10">
         <h1 className="text-3xl mb-5 font-bold">Decoration</h1>
-        {["moderate", "premium", "luxurious"].map((type, index) => (
+        {[
+          "moderate Price : 110000",
+          "premium Price : 240000",
+          "luxurious Price : 1420000",
+        ].map((type, index) => (
           <div key={index} className="flex mb-2">
             <p className="text-2xl ml-5">
               {index + 1}. {type.charAt(0).toUpperCase() + type.slice(1)}{" "}
               Decoration
             </p>
+            {/* <p>
+                {type === "moderate" &&
+                  "Price : 110000"}
+                {type === "premium" &&
+                  "Price : 240000"}
+                {type === "luxurious" &&
+                  "Price : 1420000"}
+              </p> */}
+
             <input
               type="checkbox"
               className={`checkbox ${
