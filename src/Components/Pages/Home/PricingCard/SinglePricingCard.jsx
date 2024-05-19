@@ -36,7 +36,7 @@ const SinglePricingCard = ({ event }) => {
         decoration,
         media,
       };
-      console.log(bookEvent);
+      // console.log(bookEvent);
 
       fetch("https://event-guchai-backend.vercel.app/bookings", {
         method: "POST",

@@ -4,8 +4,8 @@ import { AuthContext } from "../../../Api/Context/AuthProvider";
 
 const CustomizationPlan = () => {
   const { user } = useContext(AuthContext);
-  const [foodValue, setFoodValue] = useState(100);
-  const [soundSystemValue, setSoundSystemValue] = useState(1);
+  const [foodValue, setFoodValue] = useState(0);
+  const [soundSystemValue, setSoundSystemValue] = useState(0);
   const [mediaSelection, setMediaSelection] = useState(null);
   const [decoration, setDecoration] = useState({
     moderate: false,
