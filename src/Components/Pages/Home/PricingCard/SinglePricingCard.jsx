@@ -22,7 +22,7 @@ const SinglePricingCard = ({ event }) => {
     decoration,
     media,
   } = event;
-  console.log(event);
+  // console.log(event);
 
   const handleBookEvent = () => {
     if (user) {
