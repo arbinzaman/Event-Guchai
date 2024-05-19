@@ -8,6 +8,7 @@ import { MdDashboard } from "react-icons/md";
 import { TbChecklist } from "react-icons/tb";
 import { RxAvatar } from "react-icons/rx";
 import useUserRoles from "../../../Hooks/UseUserRole";
+import logo from "../../../assets/New folder/event guchai.png";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -68,7 +69,7 @@ const NavBar = () => {
             </ul>
           </div>
           <Link to="/">
-            <img src="/src/assets/New folder/event guchai.png" alt="" className="h-24 w-52"/>
+            <img src={logo} alt="" className="h-24 w-52"/>
             {/* <a className="btn btn-ghost text-xl">Eventগুছাই</a> */}
           </Link>
         </div>

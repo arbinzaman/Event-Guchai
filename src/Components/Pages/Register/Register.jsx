@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 const Register = () => {
   // UseTitle("Register");
   const { createUser } = useContext(AuthContext);
-  const [firstSelectValue, setFirstSelectValue] = useState("");
+  const [firstSelectValue, setFirstSelectValue] = useState("user");
   console.log(firstSelectValue);
 
   function addOption(select, text, value) {
@@ -149,8 +149,8 @@ const Register = () => {
               placeholder="contact"
               onChange={() => handleVendorSelection()}
             >
-              <option value={"user"}>user</option>
-              <option value={"vendor"}>vendor</option>
+              <option value="user" defaultChecked>user</option>
+              <option value="vendor">vendor</option>
             </select>
           </div>
           <div className="space-y-1 text-sm ">
