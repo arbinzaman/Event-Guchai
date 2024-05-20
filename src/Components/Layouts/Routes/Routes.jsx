@@ -80,10 +80,10 @@ const router = createBrowserRouter([
         path: "/dashboard/customize-plan",
         element: (
           <PrivateRoutes>
-            <UserRoute>
+            
               <CustomizeEvent></CustomizeEvent>
             </UserRoute>
-          </PrivateRoutes>
+          
         ),
       },
       {
