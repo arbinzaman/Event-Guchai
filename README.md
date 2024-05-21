@@ -1,7 +1,3 @@
-Hello Arbin, I'd be happy to help you create a comprehensive README file for your multivendor event management system named Eventগুছাই. Here's a detailed example:
-
----
-
 # Eventগুছাই
 
 Eventগুছাই is a multivendor event management system built with React (using Vite) and Firebase for authentication. The backend is powered by Node.js and MySQL. The platform supports two roles: users and vendors, with an admin interface for management. Users can customize their events, while vendors can offer their services.
@@ -196,6 +192,8 @@ Authentication is handled by Firebase. Users can sign up and log in using their 
 5. Push to the branch (`git push origin feature-branch`).
 6. Create a Pull Request.
 
-## Live Link 
 
-![Screenshot 2024-05-18 223158](https://github.com/arbinzaman/Event-Guchai/assets/108592062/456764e5-9af2-4e36-9f2d-740c82a36657)
+
+![Screenshot 2024-05-22 014226](https://github.com/arbinzaman/Event-Guchai/assets/108592062/43b746ff-c95d-4e16-a7d9-bb75ca577e79)
+
+
