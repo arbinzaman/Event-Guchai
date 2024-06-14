@@ -2,7 +2,7 @@ import logo from "../../../assets/New folder/event guchai.png";
 const Footer = () => {
   return (
     <>
-      <footer className="footer footer-center p-10 bg-cyan-300 text-black-content font-serif">
+      <footer className="footer footer-center p-10 bg-cyan-300 text-black-content font-serif text-black">
         <aside>
          <img src={logo} alt=""  className="inline-block fill-current h-24 w-52" />
           <p className="font-bold">

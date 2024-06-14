@@ -25,7 +25,7 @@ const DashBoardLayouts = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+          <ul className="menu p-4 w-80 min-h-full bg-white text-black text-base-content">
             <li className="flex">
               <Link to="/dashboard" className="text-2xl">
                 <RxAvatar className="ml-auto h-10 w-10  text-black-500" />

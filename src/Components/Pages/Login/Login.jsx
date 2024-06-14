@@ -64,7 +64,7 @@ const Login = () => {
 
   return (
     <div className="text-center">
-      <div className="w-full max-w-md mt-20 mb-20 p-8 mx-auto space-y-3 rounded-xl bg-cyan-300 text-gray-400">
+      <div className="w-full max-w-md mt-20 mb-20 p-8 mx-auto space-y-3 rounded-xl bg-cyan-300 text-black">
         <h1 className="text-2xl font-bold text-center text-black">Login</h1>
         <form
           onSubmit={handleUserNamePassword}
@@ -81,7 +81,7 @@ const Login = () => {
               name="email"
               id="email"
               placeholder="email"
-              className="w-full px-4 py-3 rounded-md border-gray-700 bg-light text-black focus:border-violet-400"
+              className="w-full px-4 py-3 rounded-md  bg-light text-black focus:border-cyan-400 bg-white"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -93,7 +93,7 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="Password"
-              className="w-full px-4 py-3 rounded-md border-gray-700 bg-light text-black focus:border-violet-400"
+              className="w-full px-4 py-3 rounded-md  bg-light text-black focus:border-cyan-400 bg-white"
             />
             <div className="flex justify-end text-xs text-black">
               <a rel="noopener noreferrer" href="#">
@@ -115,7 +115,7 @@ const Login = () => {
             onClick={handleGoggleSignIn}
             aria-label="Login with Google"
             type="button"
-            className=" text-black flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+            className=" text-black flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-cyan-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ const Login = () => {
           <Link
             to="/register"
             rel="noopener noreferrer"
-            className="underline text-gray-100 text-black"
+            className="underline  text-black"
           >
             Register
           </Link>

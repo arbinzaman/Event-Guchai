@@ -17,7 +17,7 @@ const Card = () => {
         <span className="font-bold tracking-wider uppercase text-cyan-300">
           Pricing
         </span>
-        <h2 className="text-4xl font-bold lg:text-5xl">
+        <h2 className="text-4xl font-bold lg:text-5xl text-black">
           Choose your best plan
         </h2>
       </div>

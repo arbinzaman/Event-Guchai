@@ -67,7 +67,7 @@ const SingleMedia = ({ booking }) => {
 
   return (
     <div>
-      <div className="card mt-5 w-96 bg-base-100 shadow-xl">
+      <div className="card mt-5 w-96 bg-white text-black shadow-xl">
         <div className="card-body">
           <h2 className="card-title">{description}</h2>
           <div className="card-actions justify-end">

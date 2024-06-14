@@ -235,7 +235,7 @@ const CustomizationPlan = () => {
       <h1 className="text-3xl mb-5 font-bold">Media</h1>
       <div className="ml-10 grid grid-cols-2 mt-10">
         {["Alpha", "Beta", "Charlie"].map((team, index) => (
-          <div key={index} className="card w-96 bg-base-100 shadow-xl mt-10">
+          <div key={index} className="card w-96 bg-white text-black shadow-xl mt-10">
             <div className="card-body">
               <h2 className="card-title">Team {team}</h2>
               <p>

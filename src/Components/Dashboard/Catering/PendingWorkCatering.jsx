@@ -65,7 +65,7 @@ const PendingWorkSound = () => {
           {filteredPendingWork.map((work) => (
             <div
               key={work.cateringID}
-              className="card mt-5 w-96 bg-base-100 shadow-xl"
+              className="card mt-5 w-96 bg-white text-black shadow-xl"
             >
               <div className="card-body">
                 <h2 className="card-title">{work.description}</h2>

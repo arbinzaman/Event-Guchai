@@ -60,7 +60,7 @@ const EventMainPage = () => {
   });
 
   return (
-    <div className="mb-10 mt-10">
+    <div className="mb-10 mt-10 bg-white text-black">
       <section className="p-4 lg:p-8 text-black-100">
         <div className="container mx-auto space-y-12">
           {events.map((event, index) => (
@@ -75,7 +75,7 @@ const EventMainPage = () => {
                 alt={event.eventTitle}
                 className="h-96 mt-10 aspect-video"
               />
-              <div className="card bg-base-100">
+              <div className="card bg-white text-black">
                 <div className="card-body">
                   <div className="space-y-2">
                     <h2 className="font-bold text-5xl">{event.eventTitle}</h2>

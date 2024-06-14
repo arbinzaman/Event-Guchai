@@ -10,7 +10,7 @@ const Profile = () => {
     const userName = useUserRoles(user?.email);
   return (
     <div>
-      <div className="p-6 sm:p-12 text-black bg-base-200 ml-10 rounded-md">
+      <div className="p-6 sm:p-12 text-black bg-white text-black ml-10 rounded-md">
         <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
           <RxAvatar className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start " />
           <div className="flex flex-col">

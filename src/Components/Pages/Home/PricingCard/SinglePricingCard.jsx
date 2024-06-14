@@ -90,7 +90,7 @@ const SinglePricingCard = ({ event }) => {
 
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 bg-white text-black shadow-xl">
         <div className="card-body">
           <div className="space-y-2">
             <h2 className="card-title text-3xl">{eventTitle}</h2>

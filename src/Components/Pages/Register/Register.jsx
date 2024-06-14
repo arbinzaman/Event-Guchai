@@ -4,32 +4,17 @@ import { AuthContext } from "../../../Api/Context/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
-  // UseTitle("Register");
   const { createUser } = useContext(AuthContext);
   const [firstSelectValue, setFirstSelectValue] = useState("user");
-  console.log(firstSelectValue);
+  const [vendorOptionsVisible, setVendorOptionsVisible] = useState(false);
 
-  function addOption(select, text, value) {
-    const option = document.createElement("option");
-    option.text = text;
-    option.value = value;
-    select.add(option);
-  }
-  const handleVendorSelection = () => {
-    const value = document.getElementById("role").value;
-    console.log(value);
-    const secondSelect = document.getElementById("VendorRole");
-    secondSelect.innerHTML = "";
-    if (firstSelectValue !== "vendor") {
-      secondSelect.style.display = "block";
-      addOption(secondSelect, "Select Vendor Type", "");
-      addOption(secondSelect, "sound_system", "sound_system");
-      addOption(secondSelect, "decorator", "decorator");
-      addOption(secondSelect, "media", "media");
-      addOption(secondSelect, "catering", "catering");
-      setFirstSelectValue("vendor");
+  const handleVendorSelection = (event) => {
+    const value = event.target.value;
+    setFirstSelectValue(value);
+    if (value === "vendor") {
+      setVendorOptionsVisible(true);
     } else {
-      secondSelect.style.display = "none";
+      setVendorOptionsVisible(false);
     }
   };
 
@@ -91,30 +76,30 @@ const Register = () => {
       })
       .catch((err) => console.log(err));
   };
+
   return (
     <div className="mt-10 mb-10">
-      <div className=" mx-auto w-full max-w-md p-8 space-y-3 rounded-xl bg-cyan-300 text-black">
-        <h1 className="text-2xl font-bold text-center text-black ">Sign Up</h1>
+      <div className="mx-auto w-full max-w-md p-8 space-y-3 rounded-xl bg-cyan-300 text-black">
+        <h1 className="text-2xl font-bold text-center text-black">Sign Up</h1>
         <form
           onSubmit={handleSubmit}
           noValidate=""
-          action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-1 text-sm">
-            <label htmlFor="userame" className="block text-black">
+            <label htmlFor="username" className="block text-black">
               User Name
             </label>
             <input
               type="text"
-              name="name"
+              name="username"
               id="username"
               placeholder="userName"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
+              className="w-full px-4 py-3 rounded-md dark:border-cyan-400 text-black bg-white"
             />
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="username" className="block text-black">
+            <label htmlFor="address" className="block text-black">
               Address
             </label>
             <input
@@ -122,11 +107,11 @@ const Register = () => {
               name="address"
               id="address"
               placeholder="address"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
+              className="w-full px-4 py-3 rounded-md dark:border-cyan-400 text-black bg-white"
             />
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="username" className="block text-black">
+            <label htmlFor="contact" className="block text-black">
               Contact Number
             </label>
             <input
@@ -134,43 +119,42 @@ const Register = () => {
               name="contact"
               id="contact"
               placeholder="contact"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
+              className="w-full px-4 py-3 rounded-md dark:border-cyan-400 text-black bg-white"
             />
           </div>
-          <div className="space-y-1 text-sm ">
-            <label htmlFor="role" className="block text-black" id="role">
+          <div className="space-y-1 text-sm">
+            <label htmlFor="role" className="block text-black">
               Select Role
             </label>
             <select
-              className="select  w-full "
-              type="text"
+              className="select w-full bg-white"
               name="role"
               id="role"
-              placeholder="contact"
-              onChange={() => handleVendorSelection()}
+              value={firstSelectValue}
+              onChange={handleVendorSelection}
             >
-              <option value="user" defaultChecked>user</option>
+              <option value="user">user</option>
               <option value="vendor">vendor</option>
             </select>
           </div>
-          <div className="space-y-1 text-sm ">
-            <label
-              htmlFor="username"
-              className="block text-black "
-              id=""
-              style={{ display: "none" }}
-            >
-              Select Vendor Role
-            </label>
-            <select
-              className="select w-full  "
-              type="text"
-              name="role"
-              id="VendorRole"
-              placeholder="contact"
-              style={{ display: "none" }}
-            ></select>
-          </div>
+          {vendorOptionsVisible && (
+            <div className="space-y-1 text-sm">
+              <label htmlFor="VendorRole" className="block text-black">
+                Select Vendor Role
+              </label>
+              <select
+                className="select w-full bg-white"
+                name="VendorRole"
+                id="VendorRole"
+              >
+                <option value="">Select Vendor Type</option>
+                <option value="sound_system">sound_system</option>
+                <option value="decorator">decorator</option>
+                <option value="media">media</option>
+                <option value="catering">catering</option>
+              </select>
+            </div>
+          )}
           <div className="space-y-1 text-sm">
             <label htmlFor="email" className="block text-black">
               Email
@@ -180,7 +164,7 @@ const Register = () => {
               name="email"
               id="email"
               placeholder="Email"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
+              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black bg-white"
             />
           </div>
 
@@ -193,7 +177,7 @@ const Register = () => {
               name="password"
               id="password"
               placeholder="Password"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 text-black "
+              className="w-full px-4 py-3 rounded-md dark:border-cyan-400 text-black bg-white"
             />
             <div className="flex justify-end text-xs text-black">
               <a rel="noopener noreferrer" href="#">
@@ -214,7 +198,7 @@ const Register = () => {
           <Link
             to="/login"
             rel="noopener noreferrer"
-            className="  text-black underline "
+            className="text-black underline"
           >
             Login
           </Link>
