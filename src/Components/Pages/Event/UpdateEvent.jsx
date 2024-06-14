@@ -49,13 +49,13 @@ const UpdateEvent = () => {
 
   return (
     <div>
-      <section className="p-6  text-gray-50 ">
+      <section className="p-6 bg-white text-black">
         <form
           action=""
           onSubmit={handleSubmit}
           className="container flex flex-col mx-auto space-y-12"
         >
-          <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-base-300 text-black">
+          <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-lg bg-white text-black  ">
             <div className="text-4xl space-y-2 col-span-full lg:col-span-1">
               <p className="font-medium">Update Event</p>
               {/* <p className="text-xs">
@@ -74,7 +74,7 @@ const UpdateEvent = () => {
                   id="eventTitle"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 border bg-white"
                 />
               </div>
               <div className="col-span-full sm:col-span-3">
@@ -85,7 +85,7 @@ const UpdateEvent = () => {
                   id="price"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 border bg-white"
                 />
               </div>
               <div className="col-span-full sm:col-span-3">
@@ -96,7 +96,7 @@ const UpdateEvent = () => {
                   id="shortDescription"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 border bg-white"
                 />
               </div>
               <div className="col-span-full">
@@ -107,7 +107,7 @@ const UpdateEvent = () => {
                   id="food"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 border bg-white"
                 />
               </div>
               <div className="col-span-full sm:col-span-2">
@@ -118,7 +118,7 @@ const UpdateEvent = () => {
                   id="people"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 border bg-white"
                 />
               </div>
               <div className="col-span-full sm:col-span-2">
@@ -129,7 +129,7 @@ const UpdateEvent = () => {
                   id="sound_system"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 border bg-white"
                 />
               </div>
               <div className="col-span-full sm:col-span-2">
@@ -140,7 +140,7 @@ const UpdateEvent = () => {
                   id="decoration"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 border bg-white"
                 />
               </div>
               <div className="col-span-full sm:col-span-2">
@@ -151,7 +151,7 @@ const UpdateEvent = () => {
                   id="media"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 border bg-white"
                 />
               </div>
               <div className="col-span-full sm:col-span-2">
@@ -162,7 +162,7 @@ const UpdateEvent = () => {
                   id="imgURl"
                   type="text"
                   placeholder=""
-                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900"
+                  className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 border bg-white"
                 />
               </div>
             </div>

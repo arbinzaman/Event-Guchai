@@ -22,7 +22,6 @@ import PendingWorkMedia from "../../Dashboard/Media/PendingWorkMedia";
 import UpdateEvent from "../../Pages/Event/UpdateEvent";
 import Profile from "../../Dashboard/Profile/Profile";
 import CustomizeEvent from "../../Dashboard/CustomizationPlan/CustomizationPlan";
-import UserRoute from "./UserRoute/UserRoute";
 
 const router = createBrowserRouter([
   {
@@ -79,11 +78,9 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/customize-plan",
         element: (
-          <PrivateRoutes>
-            
-              <CustomizeEvent></CustomizeEvent>
-            </UserRoute>
-          
+          <AdminRoute>
+            <CustomizeEvent></CustomizeEvent>
+          </AdminRoute>
         ),
       },
       {
