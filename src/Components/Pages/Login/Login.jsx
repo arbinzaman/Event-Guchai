@@ -22,18 +22,17 @@ const Login = () => {
   const handleUserNamePassword = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    // const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, email, password);
+    console.log( email, password);
     signIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
         toast.success("login success");
-        setError("");
         navigate(from, { replace: true });
       })
 
@@ -42,7 +41,7 @@ const Login = () => {
         setError(error.message);
     
       });
-      toast.error(error);
+      toast.error(error.message);
   };
 
   // google login
