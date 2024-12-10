@@ -41,6 +41,8 @@ const PendingWorkMedia = () => {
           toast.success("Status updated to completed");
           setIsButtonDisabled(true);
           refetch();
+          toast.error("Failed to update status");
+          window.location.reload(); // Reload the page
         } else {
           console.error("Failed to update status");
           toast.error("Failed to update status");

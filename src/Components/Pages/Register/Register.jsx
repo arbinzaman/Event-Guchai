@@ -137,7 +137,6 @@ const Register = () => {
               value={firstSelectValue}
               onChange={handleVendorSelection}
             >
-              <option value="" defaultChecked >Select role type</option>
               <option value="user">user</option>
               <option value="vendor">vendor</option>
             </select>

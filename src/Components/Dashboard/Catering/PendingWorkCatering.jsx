@@ -40,9 +40,12 @@ const PendingWorkSound = () => {
         if (data.message === "status updated successfully") {
           toast.success("Status updated to completed");
           setIsButtonDisabled(true);
+          toast.error("Failed to update status");
+          window.location.reload(); // Reload the page
           refetch();
         } else {
           console.error("Failed to update status");
+          window.location.reload(); // Reload the page
           toast.error("Failed to update status");
         }
       })
