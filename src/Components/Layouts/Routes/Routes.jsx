@@ -78,9 +78,9 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/customize-plan",
         element: (
-          <AdminRoute>
+   
             <CustomizeEvent></CustomizeEvent>
-          </AdminRoute>
+      
         ),
       },
       {
