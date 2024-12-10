@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [firstSelectValue, setFirstSelectValue] = useState("user");
+  console.log(firstSelectValue);
   const [vendorOptionsVisible, setVendorOptionsVisible] = useState(false);
 
   const handleVendorSelection = (event) => {
@@ -28,12 +29,14 @@ const Register = () => {
     const form = event.target;
     const userName = form.username.value;
     const role = firstSelectValue;
-    const vendorRole = form.VendorRole.value;
     const address = form.address.value;
     const phone = form.contact.value;
     const email = form.email.value;
     const password = form.password.value;
-
+  
+    // Only include VendorRole if the role is "vendor"
+    const vendorRole = role === "vendor" ? form.VendorRole.value : null;
+  
     const data = {
       userName,
       address,
@@ -43,8 +46,9 @@ const Register = () => {
       email,
       password,
     };
+  
     console.log(data);
-
+  
     fetch("https://event-guchai-backend.vercel.app/users", {
       method: "POST",
       headers: {
@@ -56,9 +60,8 @@ const Register = () => {
       .then((data) => {
         console.log(data);
         if (data.insertId) {
-          toast.success("user added success");
-          console.log(data);
-
+          toast.success("User added successfully");
+  
           createUser(email, password)
             .then((result) => {
               const user = result.user;
@@ -71,11 +74,12 @@ const Register = () => {
               toast.error(error.message);
             });
         } else {
-          toast.error("user added failed");
+          toast.error("User addition failed");
         }
       })
       .catch((err) => console.log(err));
   };
+  
 
   return (
     <div className="mt-10 mb-10">
@@ -133,6 +137,7 @@ const Register = () => {
               value={firstSelectValue}
               onChange={handleVendorSelection}
             >
+              <option value="" defaultChecked >Select role type</option>
               <option value="user">user</option>
               <option value="vendor">vendor</option>
             </select>
